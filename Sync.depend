@@ -1,0 +1,280 @@
+# depslib dependency file v1.0
+1717578957 source:d:\mikhail_murzin\syncronisation\sync\main.cpp
+	<iostream>
+	<iomanip>
+	<thread>
+	<chrono>
+	"serial_lib_cpp.cpp"
+	<sstream>
+	<fstream>
+	<list>
+	<iterator>
+	<stdlib.h>
+	"serialib.h"
+
+1713883683 d:\mikhail_murzin\syncronisation\sync\due-pp-lib.c
+	"due-pp-lib.h"
+	<math.h>
+	<unistd.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<sys/file.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<unistd.h>
+	<sys/time.h>
+
+1697672975 d:\mikhail_murzin\syncronisation\sync\due-pp-lib.h
+
+1698709174 d:\mikhail_murzin\syncronisation\sync\serialib.h
+	<sys/time.h>
+	<sys/time.h>
+	<windows.h>
+	<stdlib.h>
+	<sys/types.h>
+	<sys/shm.h>
+	<termios.h>
+	<string.h>
+	<iostream>
+	<sys/time.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/ioctl.h>
+
+1698708839 source:d:\mikhail_murzin\syncronisation\sync\serialib.cpp
+	"serialib.h"
+
+1717157912 d:\mikhail_murzin\syncronisation\sync\serial_lib_cpp.cpp
+	"due-pp-lib.h"
+	<math.h>
+	<unistd.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<sys/file.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	"serialib.h"
+	<unistd.h>
+	<sys/time.h>
+	<thread>
+	<chrono>
+
+1724074124 source:d:\low_field_mri\github_programs\low_field_mri_programs\syncronisation\main.cpp
+	<iostream>
+	<iomanip>
+	<thread>
+	<chrono>
+	"serial_lib_cpp.cpp"
+	<sstream>
+	<fstream>
+	<list>
+	<iterator>
+	<stdlib.h>
+	"serialib.h"
+
+1717157912 d:\low_field_mri\github_programs\low_field_mri_programs\syncronisation\serial_lib_cpp.cpp
+	"due-pp-lib.h"
+	<math.h>
+	<unistd.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<sys/file.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	"serialib.h"
+	<unistd.h>
+	<sys/time.h>
+	<thread>
+	<chrono>
+
+1697672975 d:\low_field_mri\github_programs\low_field_mri_programs\syncronisation\due-pp-lib.h
+
+1698709174 d:\low_field_mri\github_programs\low_field_mri_programs\syncronisation\serialib.h
+	<sys/time.h>
+	<sys/time.h>
+	<windows.h>
+	<stdlib.h>
+	<sys/types.h>
+	<sys/shm.h>
+	<termios.h>
+	<string.h>
+	<iostream>
+	<sys/time.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/ioctl.h>
+
+1698708839 source:d:\low_field_mri\github_programs\low_field_mri_programs\syncronisation\serialib.cpp
+	"serialib.h"
+
+1698708839 source:d:\low_field_mri\github_programs Ч copy\low_field_mri_programs\syncronisation\serialib.cpp
+	"serialib.h"
+
+1698709174 d:\low_field_mri\github_programs Ч copy\low_field_mri_programs\syncronisation\serialib.h
+	<sys/time.h>
+	<sys/time.h>
+	<windows.h>
+	<stdlib.h>
+	<sys/types.h>
+	<sys/shm.h>
+	<termios.h>
+	<string.h>
+	<iostream>
+	<sys/time.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/ioctl.h>
+
+1726135465 source:d:\low_field_mri\github_programs Ч copy\low_field_mri_programs\syncronisation\main.cpp
+	<iostream>
+	<iomanip>
+	<thread>
+	<chrono>
+	"serial_lib_cpp.cpp"
+	<sstream>
+	<fstream>
+	<list>
+	<iterator>
+	<stdlib.h>
+	"serialib.h"
+
+1717157912 d:\low_field_mri\github_programs Ч copy\low_field_mri_programs\syncronisation\serial_lib_cpp.cpp
+	"due-pp-lib.h"
+	<math.h>
+	<unistd.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<sys/file.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	"serialib.h"
+	<unistd.h>
+	<sys/time.h>
+	<thread>
+	<chrono>
+
+1697672975 d:\low_field_mri\github_programs Ч copy\low_field_mri_programs\syncronisation\due-pp-lib.h
+
+1694109312 d:\low_field_mri\github_programs Ч copy\low_field_mri_programs\syncronisation\pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1694109312 d:\low_field_mri\github_programs Ч copy\low_field_mri_programs\syncronisation\pugiconfig.hpp
+
+1694109312 source:d:\low_field_mri\github_programs Ч copy\low_field_mri_programs\syncronisation\pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<sys/stat.h>
+	<stdint.h>
+
+1694109312 source:e:\mrt_lowfield\файлы_02_10_2024\syncronisation\pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<sys/stat.h>
+	<stdint.h>
+
+1694109312 e:\mrt_lowfield\файлы_02_10_2024\syncronisation\pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1694109312 e:\mrt_lowfield\файлы_02_10_2024\syncronisation\pugiconfig.hpp
+
+1698708839 source:e:\mrt_lowfield\файлы_02_10_2024\syncronisation\serialib.cpp
+	"serialib.h"
+
+1698709174 e:\mrt_lowfield\файлы_02_10_2024\syncronisation\serialib.h
+	<sys/time.h>
+	<sys/time.h>
+	<windows.h>
+	<stdlib.h>
+	<sys/types.h>
+	<sys/shm.h>
+	<termios.h>
+	<string.h>
+	<iostream>
+	<sys/time.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/ioctl.h>
+
+1729037332 source:e:\mrt_lowfield\файлы_02_10_2024\syncronisation\main.cpp
+	<iostream>
+	<iomanip>
+	<thread>
+	<chrono>
+	<ctime>
+	"serial_lib_cpp.cpp"
+	<sstream>
+	<fstream>
+	<list>
+	<iterator>
+	<stdlib.h>
+	"serialib.h"
+	"pugixml.hpp"
+
+1717157912 e:\mrt_lowfield\файлы_02_10_2024\syncronisation\serial_lib_cpp.cpp
+	"due-pp-lib.h"
+	<math.h>
+	<unistd.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<sys/file.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	"serialib.h"
+	<unistd.h>
+	<sys/time.h>
+	<thread>
+	<chrono>
+
+1697672975 e:\mrt_lowfield\файлы_02_10_2024\syncronisation\due-pp-lib.h
+

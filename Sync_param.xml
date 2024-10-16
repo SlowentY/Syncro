@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+<ParamCount>7</ParamCount>
+<RF>
+    <RF1>1</RF1>
+    <RF2>0</RF2>
+    <RF3>1</RF3>
+    <RF4>0</RF4>
+    <RF5>0</RF5>
+    <RF6>0</RF6>
+    <RF7>0</RF7>
+</RF>
+
+<SW>
+    <SW1>0</SW1>
+    <SW2>0</SW2>
+    <SW3>0</SW3>
+    <SW4>0</SW4>
+    <SW5>1</SW5>
+    <SW6>1</SW6>
+    <SW7>0</SW7>
+</SW>
+
+<ADC>
+    <ADC1>0</ADC1>
+    <ADC2>0</ADC2>
+    <ADC3>0</ADC3>
+    <ADC4>0</ADC4>
+    <ADC5>0</ADC5>
+    <ADC6>1</ADC6>
+    <ADC7>0</ADC7>
+</ADC>
+
+<GRU>
+    <GRU1>1</GRU1>
+    <GRU2>1</GRU2>
+    <GRU3>1</GRU3>
+    <GRU4>1</GRU4>
+    <GRU5>1</GRU5>
+    <GRU6>1</GRU6>
+    <GRU7>1</GRU7>
+</GRU>
+
+<CL>
+    <CL1>4.67e+05</CL1>
+    <CL2>5.06e+05</CL2>
+    <CL3>5.21e+05</CL3>
+    <CL4>6.845e+05</CL4>
+    <CL5>5000</CL5>
+    <CL6>1e+05</CL6>
+    <CL7>7.7165e+06</CL7>
+</CL>
+
+</root>
