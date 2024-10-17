@@ -31,82 +31,19 @@
 #include <stdlib.h>
 #include "serialib.h" // Serial library
 #include "pugixml.hpp"
-
-#define ERR -1 // Logger flags
-#define WARN 1
-#define INFO 0
+#include "simplelogger.hpp"
 
 using namespace std;
-
 using namespace std::literals::chrono_literals;
 
 //#define SERIAL_PORT "\\\\.\\COM1"
 //const string SERIAL_PORT{"\\\\.\\COM19"};
 
 const string SERIAL_PORT{"\\\\.\\COM5"};
-static ofstream os_log; // Logger stream
+extern std::ostream out(std::cout.rdbuf());
+extern SimpleLogger newlogger = SimpleLogger(out, "sync");
+
 static bool en_cout = false;
-
-//Initialization of logger
-
-static void OpenFileLogger(string logfile_name = "")
-{
-    if(logfile_name == "") {
-        std::chrono::time_point<std::chrono::system_clock> time_now = std::chrono::system_clock::now();
-        std::time_t t_n = std::chrono::system_clock::to_time_t(time_now);
-
-        char logfile_creation_time[100];
-        std::strftime(logfile_creation_time, sizeof(logfile_creation_time), "%Y%m%d-%H%M%S", std::localtime(&t_n));
-        logfile_name = "log-" + std::string(logfile_creation_time, 100) + ".txt";
-    }
-
-    os_log.open(logfile_name);
-}
-
-static void CloseFileLogger()
-{
-    os_log.close();
-}
-
-static void EnableConsoleLogger(bool en)
-{
-    en_cout = en;
-}
-
-// Logger function
-
-static ofstream& out_log(short flag = INFO)
-{
-    auto time = std::chrono::system_clock::now(); // get the current time
-    std::time_t t = std::chrono::system_clock::to_time_t(time);
-
-    char log_time[100];
-    std::strftime(log_time, sizeof(log_time), "%Y-%m-%d %H:%M:%S", std::localtime(&t));
-
-    auto since_epoch = time.time_since_epoch(); // get the duration since epoch
-
-    auto time_millis = std::chrono::duration_cast<std::chrono::milliseconds>(since_epoch);
-    auto time_seconds = std::chrono::duration_cast<std::chrono::seconds>(since_epoch);
-
-    unsigned long long millis = time_millis.count() - 1000*time_seconds.count();
-
-    os_log << "[" << log_time << ":" << std::dec << millis << "]";
-
-    switch(flag)
-    {
-    case ERR:
-        os_log << " / [ERROR]\t";
-        break;
-    case WARN:
-        os_log << " / [WARN]\t";
-        break;
-    case INFO:
-        os_log << " / [INFO]\t";
-        break;
-    }
-
-    return os_log;
-}
 
 int32_t ii, jj, kk, nn, reps, maxnb;
 char ch;
@@ -128,11 +65,11 @@ uint32_t check(string param){
             return uint32_t(result);
     }}//try
     catch (std::invalid_argument const& ex){
-        out_log() << "XML parse error std::invalid_argument:: " << ex.what() <<" error in param: "<<param<< '\n';
+        newlogger << "XML parse error std::invalid_argument:: " << ex.what() <<" error in param: "<<param<< '\n';
         return 0;
     }
     catch (std::out_of_range const& ex){
-         out_log() << "XML parse error std::out_of_range::" << ex.what() <<" error in param: "<<param<< '\n';
+         newlogger << "XML parse error std::out_of_range::" << ex.what() <<" error in param: "<<param<< '\n';
          return 0;
     }
 
@@ -141,25 +78,25 @@ uint32_t check(string param){
 
 bool ShowParameterText(string param, pugi::xml_node node)
 {
-    out_log() << "Showing parameter : " << param << std::endl;
+    newlogger << "Showing parameter : " << param << std::endl;
 
     if (node==nullptr)
     {
-        out_log() << "ERROR no such parameter : " << param << std::endl;
+        newlogger << "ERROR no such parameter : " << param << std::endl;
         return false;
     }
     if (strlen(node.text().get())==0)
     {
-        out_log() << "ERROR no text for parameter : " << param << std::endl;
+        newlogger << "ERROR no text for parameter : " << param << std::endl;
         return false;
     }
 
-    //out_log() << param << " strlen text: " << strlen(node.text().get()) << std::endl;
-    out_log() << param << " get text: " << node.text().get() << std::endl;
-    out_log()<< param << " get as int : " << check(node.text().get())<< std::endl;
+    //newlogger << param << " strlen text: " << strlen(node.text().get()) << std::endl;
+    newlogger << param << " get text: " << node.text().get() << std::endl;
+    newlogger<< param << " get as int : " << check(node.text().get())<< std::endl;
 
-    //out_log() << param << " get as double : " << node.text().as_double() << std::endl;
-    //out_log() << param << " get as bool: " << node.text().as_bool() << std::endl;
+    //newlogger << param << " get as double : " << node.text().as_double() << std::endl;
+    //newlogger << param << " get as bool: " << node.text().as_bool() << std::endl;
 
     return true;
 } //function ShowParam
@@ -172,42 +109,43 @@ uint32_t GetOutputs(uint32_t RF, uint32_t SW, uint32_t ADC, uint32_t GRU){
     case 0:
         outputs = outputs&0xFFFFFFFE;
         break;
-        out_log()<<"RF 0"<<endl;
+        newlogger<<"RF 0"<<endl;
 
     case 1:
         outputs = outputs|0x00000001;
-        out_log()<<"RF 1"<<endl;
+        newlogger<<"RF 1"<<endl;
         break;
     }//end switch RF
 
-    out_log()<<hex<<outputs<<endl;
+    newlogger<<hex<<outputs<<endl;
     switch(SW){
     case 0:
         outputs = outputs&0xFFFFFFEF;
-        out_log()<<"SW 0"<<endl;
+        newlogger<<"SW 0"<<endl;
         break;
 
     case 1:
         outputs = outputs|0x00000010;
-        out_log()<<"SW 1"<<endl;
+        newlogger<<"SW 1"<<endl;
         break;
 
     }//end switch SW
-    out_log()<<hex<<outputs<<endl;
+    newlogger<<hex<<outputs<<endl;
 
     switch(ADC){
     case 0:
         outputs = outputs&0xFFFFFEFF;
-        out_log()<<"ADC 0"<<endl;
+        newlogger<<"ADC 0"<<endl;
         break;
 
     case 1:
         outputs = outputs|0x00000100;
-        out_log()<<"ADC 1"<<endl;
+        newlogger<<"ADC 1"<<endl;
         break;
 
     }//end switch ADC
-    out_log()<<hex<<outputs<<endl;
+
+    newlogger << hex << outputs << endl;
 
 
     switch(GRU){
@@ -220,33 +158,30 @@ uint32_t GetOutputs(uint32_t RF, uint32_t SW, uint32_t ADC, uint32_t GRU){
         break;
 
     }//end switch ADC
-    //out_log()<<hex<<outputs;
-    out_log()<<hex<<outputs<<endl;
+    //newlogger<<hex<<outputs;
+    newlogger<<hex<<outputs<<endl;
 
     return outputs;
 }
 
 int main()
 {
-// Making logfile and opening output filestream
-
-    OpenFileLogger();
-    EnableConsoleLogger(true);
+    newlogger.enableConsoleOutput(true);
 
 // READING XML FILE
 
     const string filepath{""};
     const string filename{"sync_v2.xml"};
 
-    out_log() << filepath+filename << endl;
+    newlogger << filepath+filename << endl;
 
     pugi::xml_document doc;
 
     pugi::xml_parse_result result = doc.load_file((filepath+filename).c_str());
 
-    out_log() << boolalpha << showpoint; //boolalpha and noboolalpha
+    newlogger << boolalpha << showpoint; //boolalpha and noboolalpha
 
-    out_log() << "Load result: " << result.description() << std::endl;
+    newlogger << "Load result: " << result.description() << std::endl;
 
 //    ShowParameterText("noparam", doc.child("config").child("nochild") );
 //    ShowParameterText("param1", doc.child("config").child("param1") );
@@ -258,10 +193,10 @@ int main()
 //
 //    ShowParameterText("config2-param1", doc.child("config").child("config2").child("param1") );
 
-    out_log()<<"ParamCount = ";
+    newlogger<<"ParamCount = ";
 
     uint32_t ParamCount =  check(doc.child("root").child("ParamCount").text().get());
-    out_log()<<ParamCount<<std::endl;
+    newlogger<<ParamCount<<std::endl;
     int *RF_array {new int [ParamCount]{}};
     int *SW_array {new int [ParamCount]{}};
     int *ADC_array {new int [ParamCount]{}};
@@ -275,7 +210,7 @@ int main()
         string param3 {"ADC"+to_string(i)};
         string param4 {"GRU"+to_string(i)};
         string param5 {"CL"+to_string(i)};
-//        out_log() << param1;
+//        newlogger << param1;
 
         RF_array[i] = check(doc.child("root").child("RF").child(param1.c_str()).text().get());
         SW_array[i] = check(doc.child("root").child("SW").child(param2.c_str()).text().get());
@@ -289,7 +224,7 @@ int main()
         //ShowParameterText(param4, doc.child("root").child("GRU").child(param4.c_str()));
         ShowParameterText(param5, doc.child("root").child("CL").child(param5.c_str()));
     }//for
-    doc.save(out_log());
+    doc.save(out);
 
 const string OutFilePath {"D:\Synchronisation\dueppwinserial"};
 const string OutFileName {"0000"};
@@ -297,7 +232,7 @@ const string OutFileNameCommand {"_command"};
 const string OutFileNameData {"_data"};
 string OutFile;
 
-  out_log() << "START" << endl;
+  newlogger << "START" << endl;
 
     outputs1 = 0x02000000;
     ticks1 = 0x000000FF;
@@ -367,8 +302,8 @@ string OutFile;
     }
 
 
-  out_log() << "" << endl;
-  out_log() << "Events added" << endl;
+  newlogger << "" << endl;
+  newlogger << "Events added" << endl;
 
     due_exit_program(&program1);
 
@@ -376,18 +311,18 @@ string OutFile;
 
    due_dump_program(&program1);
 
-   out_log() << "" << endl;
-   out_log() << "Program in HEX" << endl;
+   newlogger << "" << endl;
+   newlogger << "Program in HEX" << endl;
 
     for (int32_t ii=0;  ii<program1.dpos+0; ii++)
     {
-    //out_log() << "" << std::hex << std::showbase << std::uppercase << program1.data[ii]<< endl;
-    out_log() << "" << setbase(16) << std::setfill ('0') << std::setw(8)<< std::uppercase << program1.data[ii]<< endl;
+    //newlogger << "" << std::hex << std::showbase << std::uppercase << program1.data[ii]<< endl;
+    newlogger << "" << std::hex << std::setfill('0') << std::setw(8)<< std::uppercase << program1.data[ii]<< endl;
     }  //for
 
     /*-----------------------
-    out_log() << "" << endl;
-    out_log() << "trying due_download_prog_save_to_file() " << endl;
+    newlogger << "" << endl;
+    newlogger << "trying due_download_prog_save_to_file() " << endl;
 
    //int fd = open("d:\\work\\codeblocks projects\\dueppwin00\\0000", O_WRONLY | O_CREAT | O_TRUNC);  //! creates readonly file - wrong permissions
    //int fd = open("d:\\work\\codeblocks projects\\dueppwin00\\0000", O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU | S_IRWXG | S_IRWXO);  //ok
@@ -396,7 +331,7 @@ string OutFile;
 
    int fd = open(OutFile.c_str(), O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU | S_IRWXG | S_IRWXO);  //ok
 
-   out_log() << std::dec << "file fd = " << fd << endl;
+   newlogger << std::dec << "file fd = " << fd << endl;
 
     //due_download_prog(fd, &program1);
     due_download_prog_save_to_file(fd, &program1);
@@ -404,14 +339,13 @@ string OutFile;
     close(fd);
 
    //-----------------------*/
-    out_log() << "" << endl;
-    out_log() << "trying due_download_prog_save_to_file_command() " << endl;
+    newlogger << "" << endl;
+    newlogger << "trying due_download_prog_save_to_file_command() " << endl;
 
-    OutFile = OutFilePath + OutFileNameCommand;
+    OutFile = std::string("");
 
+    newlogger << std::dec << "file fd = " << 1 << endl;
    int fd = open(OutFile.c_str(), O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU | S_IRWXG | S_IRWXO);  //ok
-
-   out_log() << std::dec << "file fd = " << fd << endl;
 
     //due_download_prog(fd, &program1);
     due_download_prog_save_to_file_command(fd, &program1);
@@ -419,19 +353,19 @@ string OutFile;
     close(fd);
 
 
-    out_log() << endl<< endl<< "creating Serial object" << endl;
+    newlogger << endl<< endl<< "creating Serial object" << endl;
 
      // Serial object
     serialib serial;
 
-    out_log() << "connecting to Serial object" << endl;
+    newlogger << "connecting to Serial object" << endl;
 
     // Connection to serial port
     //char errorOpening = serial.openDevice(SERIAL_PORT, 38400);
     char errorOpening = serial.openDevice(SERIAL_PORT.c_str(), 38400);
 
 
-    out_log() << "checking connection" << endl;
+    newlogger << "checking connection" << endl;
 
 
     // If connection fails, return the error code otherwise, display a success message
@@ -450,24 +384,24 @@ string OutFile;
   this_thread::sleep_for(100ms);
 
    ii = serial.available();
-   out_log() << "S serial.available = " << ii<< endl;
+   newlogger << "S serial.available = " << ii<< endl;
 
     serial.readString(buffer, '\n', 254, 1000);
-    out_log() << "S serial.readString = " << buffer << endl;
+    newlogger << "S serial.readString = " << buffer << endl;
 
 
   serial.writeChar('Q');
 //  this_thread::sleep_for(100ms);
 
    ii = serial.available();
-   out_log() << "Q serial.available = " << ii<< endl;
+   newlogger << "Q serial.available = " << ii<< endl;
 
     //serial.readChar(&ch, 1000);
     //printf ("ch = %c\n", ch);
-    //out_log() << " serial.readChar = " <<  ch << endl;
+    //newlogger << " serial.readChar = " <<  ch << endl;
 
     serial.readString(buffer, '\n', 254, 1000);
-    out_log() << "Q serial.readString = " << buffer << endl;
+    newlogger << "Q serial.readString = " << buffer << endl;
 
 //// send data length, low byte, high byte
 //  cbyte[0] = 'D';
@@ -480,82 +414,82 @@ string OutFile;
 //serial.writeChar(char((program1.dpos>>8)&0xff));
 //
 //b[0] = uint8_t('D');
-//out_log()<<"byte0 = ";
-//out_log()<<char(b[0])<<"  ";
-//out_log() << setbase(16) <<  std::setfill ('0') << std::setw(2)<< std::uppercase << int16_t(b[0]) << endl;
+//newlogger<<"byte0 = ";
+//newlogger<<char(b[0])<<"  ";
+//newlogger << setbase(16) <<  std::setfill ('0') << std::setw(2)<< std::uppercase << int16_t(b[0]) << endl;
 //
 //b[1] = uint8_t((program1.dpos>>0)&0xff);
-////    out_log() << "" << setbase(16) << std::setfill ('0') << std::setw(8)<< std::uppercase << program1.data[ii]<< endl;
-//out_log()<<"byte1 = ";
-////out_log()<<b[0]<<"  ";
-//out_log() << setbase(16) <<  std::setfill ('0') << std::setw(2)<< std::uppercase << int16_t(b[1]) << endl;
+////    newlogger << "" << setbase(16) << std::setfill ('0') << std::setw(8)<< std::uppercase << program1.data[ii]<< endl;
+//newlogger<<"byte1 = ";
+////newlogger<<b[0]<<"  ";
+//newlogger << setbase(16) <<  std::setfill ('0') << std::setw(2)<< std::uppercase << int16_t(b[1]) << endl;
 ////serial.writeChar((b));
 ////serial.writeBytes(b, 1);
 //
 //b[2] = uint8_t((program1.dpos>>8)&0xff);
-//out_log()<<"byte2 = " ;
-////out_log()<<b[0]<<"  ";
-//out_log() << setbase(16) <<  std::setfill ('0') << std::setw(2)<< std::uppercase << int16_t(b[2]) << endl;
+//newlogger<<"byte2 = " ;
+////newlogger<<b[0]<<"  ";
+//newlogger << setbase(16) <<  std::setfill ('0') << std::setw(2)<< std::uppercase << int16_t(b[2]) << endl;
 ////serial.writeChar(char(b[0]));
 ////serial.writeBytes(b, 1);
 //
 //serial.writeBytes(b, 3);
 int due_dl{0};
 due_dl = due_upload_trajectory(serial, &program1);
-//out_log() << std::dec << "" << endl;
+//newlogger << std::dec << "" << endl;
 //
 //   ii = serial.available();
-//    out_log() << "D serial.available = " << ii<< endl;
+//    newlogger << "D serial.available = " << ii<< endl;
 //
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "D serial.readString = " << buffer << endl;
+//    newlogger << "D serial.readString = " << buffer << endl;
 //
 //    serial.writeBytes(program1.data, program1.dpos*4);
 ////    this_thread::sleep_for(100ms);
 //
 //    ii = serial.available();
-//    out_log() << "data serial.available = " << ii<< endl;
+//    newlogger << "data serial.available = " << ii<< endl;
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "data serial.readString = " << buffer << endl;
+//    newlogger << "data serial.readString = " << buffer << endl;
 //
 //serial.writeChar('S');
 ////  this_thread::sleep_for(100ms);
 //   ii = serial.available();
-//   out_log() << "S serial.available = " << ii<< endl;
+//   newlogger << "S serial.available = " << ii<< endl;
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "S serial.readString = " << buffer << endl;
+//    newlogger << "S serial.readString = " << buffer << endl;
 //
 ////   serial.writeChar('E');
 //////   serial.writeChar('e');
 //////  this_thread::sleep_for(100ms);
 ////   ii = serial.available();
-////   out_log() << "e serial.available = " << ii<< endl;
+////   newlogger << "e serial.available = " << ii<< endl;
 ////    serial.readString(buffer, '\n', 254, 1000);
-////    out_log() << "e serial.readString = " << buffer << endl;
+////    newlogger << "e serial.readString = " << buffer << endl;
 //
 //serial.writeChar('S');
 ////  this_thread::sleep_for(100ms);
 //   ii = serial.available();
-//   out_log() << "S serial.available = " << ii<< endl;
+//   newlogger << "S serial.available = " << ii<< endl;
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "S serial.readString = " << buffer << endl;
+//    newlogger << "S serial.readString = " << buffer << endl;
 //
 //serial.writeChar('S');
 ////  this_thread::sleep_for(100ms);
 //   ii = serial.available();
-//   out_log() << "S serial.available = " << ii<< endl;
+//   newlogger << "S serial.available = " << ii<< endl;
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "S serial.readString = " << buffer << endl;
+//    newlogger << "S serial.readString = " << buffer << endl;
 //
 // serial.writeChar('S');
 ////  this_thread::sleep_for(100ms);
 //   ii = serial.available();
-//   out_log() << "S serial.available = " << ii<< endl;
+//   newlogger << "S serial.available = " << ii<< endl;
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "S serial.readString = " << buffer << endl;
+//    newlogger << "S serial.readString = " << buffer << endl;
 //
-//    out_log() << "" << endl;
-//    out_log() << "" << endl;
+//    newlogger << "" << endl;
+//    newlogger << "" << endl;
 //    this_thread::sleep_for(1000ms);
 //
 //
@@ -564,9 +498,9 @@ due_dl = due_upload_trajectory(serial, &program1);
 //////   serial.writeChar('e');
 //
 //   ii = serial.available();
-//   out_log() << "e serial.available = " << ii<< endl;
+//   newlogger << "e serial.available = " << ii<< endl;
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "e serial.readString = " << buffer << endl;
+//    newlogger << "e serial.readString = " << buffer << endl;
 //
 //
 //        this_thread::sleep_for(1000ms);
@@ -577,25 +511,25 @@ due_dl = due_upload_trajectory(serial, &program1);
 //////   serial.writeChar('e');
 //
 //   ii = serial.available();
-//   out_log() << "e serial.available = " << ii<< endl;
+//   newlogger << "e serial.available = " << ii<< endl;
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "e serial.readString = " << buffer << endl;
+//    newlogger << "e serial.readString = " << buffer << endl;
 //
 //       ii = serial.available();
-//   out_log() << "e serial.available = " << ii<< endl;
+//   newlogger << "e serial.available = " << ii<< endl;
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "e serial.readString = " << buffer << endl;
+//    newlogger << "e serial.readString = " << buffer << endl;
 //
 //
 //       ii = serial.available();
-//   out_log() << "e serial.available = " << ii<< endl;
+//   newlogger << "e serial.available = " << ii<< endl;
 //    serial.readString(buffer, '\n', 254, 1000);
-//    out_log() << "e serial.readString = " << buffer << endl;
+//    newlogger << "e serial.readString = " << buffer << endl;
 
 
         //this_thread::sleep_for(30000ms);
 
-    out_log() << "" << endl;
-    out_log() << "DONE!" << endl;
+    newlogger << "" << endl;
+    newlogger << "DONE!" << endl;
     return 0;
 }

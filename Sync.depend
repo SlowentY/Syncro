@@ -278,3 +278,98 @@
 
 1697672975 e:\mrt_lowfield\פאיכû_02_10_2024\syncronisation\due-pp-lib.h
 
+1729045878 source:e:\mrt_lowfield\syncronisation\pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<sys/stat.h>
+	<stdint.h>
+
+1729045878 e:\mrt_lowfield\syncronisation\pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1729045878 e:\mrt_lowfield\syncronisation\pugiconfig.hpp
+
+1729045878 source:e:\mrt_lowfield\syncronisation\serialib.cpp
+	"serialib.h"
+
+1729045878 e:\mrt_lowfield\syncronisation\serialib.h
+	<sys/time.h>
+	<sys/time.h>
+	<windows.h>
+	<stdlib.h>
+	<sys/types.h>
+	<sys/shm.h>
+	<termios.h>
+	<string.h>
+	<iostream>
+	<sys/time.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/ioctl.h>
+
+1729176938 source:e:\mrt_lowfield\syncronisation\simplelogger.cpp
+	"simplelogger.hpp"
+
+1729178082 e:\mrt_lowfield\syncronisation\simplelogger.hpp
+	<iostream>
+	<iomanip>
+	<chrono>
+	<ctime>
+	<sstream>
+	<fstream>
+	<sstream>
+	<fstream>
+
+1729180967 source:e:\mrt_lowfield\syncronisation\main.cpp
+	<iostream>
+	<iomanip>
+	<thread>
+	<chrono>
+	<ctime>
+	"serial_lib_cpp.cpp"
+	<sstream>
+	<fstream>
+	<list>
+	<iterator>
+	<stdlib.h>
+	"serialib.h"
+	"pugixml.hpp"
+	"simplelogger.hpp"
+
+1729045878 e:\mrt_lowfield\syncronisation\serial_lib_cpp.cpp
+	"due-pp-lib.h"
+	<math.h>
+	<unistd.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<sys/file.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	"serialib.h"
+	<unistd.h>
+	<sys/time.h>
+	<thread>
+	<chrono>
+
+1729045878 e:\mrt_lowfield\syncronisation\due-pp-lib.h
+

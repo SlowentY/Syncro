@@ -30,6 +30,8 @@
 		</Unit>
 		<Unit filename="serialib.cpp" />
 		<Unit filename="serialib.h" />
+		<Unit filename="simplelogger.cpp" />
+		<Unit filename="simplelogger.hpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
