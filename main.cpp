@@ -302,22 +302,22 @@ string OutFile;
     }
 
 
-  newlogger << "" << endl;
-  newlogger << "Events added" << endl;
+    newlogger << "" << endl;
+    newlogger << "Events added" << endl;
 
     due_exit_program(&program1);
 
     due_finalize_program(&program1);
 
-   due_dump_program(&program1);
+    due_dump_program(&program1);
 
-   newlogger << "" << endl;
-   newlogger << "Program in HEX" << endl;
+    newlogger << "" << endl;
+    newlogger << "Program in HEX" << endl;
 
     for (int32_t ii=0;  ii<program1.dpos+0; ii++)
     {
-    //newlogger << "" << std::hex << std::showbase << std::uppercase << program1.data[ii]<< endl;
-    newlogger << "" << std::hex << std::setfill('0') << std::setw(8)<< std::uppercase << program1.data[ii]<< endl;
+        //newlogger << "" << std::hex << std::showbase << std::uppercase << program1.data[ii]<< endl;
+        newlogger << "" << std::hex << std::setfill('0') << std::setw(8)<< std::uppercase << program1.data[ii]<< endl;
     }  //for
 
     /*-----------------------
@@ -345,7 +345,7 @@ string OutFile;
     OutFile = std::string("");
 
     newlogger << std::dec << "file fd = " << 1 << endl;
-   int fd = open(OutFile.c_str(), O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU | S_IRWXG | S_IRWXO);  //ok
+    int fd = open(OutFile.c_str(), O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU | S_IRWXG | S_IRWXO);  //ok
 
     //due_download_prog(fd, &program1);
     due_download_prog_save_to_file_command(fd, &program1);
@@ -377,20 +377,20 @@ string OutFile;
     }
     else  printf ("Successful connection to %s\n",SERIAL_PORT.c_str());
 
-  serial.flushReceiver();
+    serial.flushReceiver();
 
- serial.writeChar('S');
-//  this_thread::sleep_for(100ms);
-  this_thread::sleep_for(100ms);
+    serial.writeChar('S');
+    //  this_thread::sleep_for(100ms);
+    this_thread::sleep_for(100ms);
 
-   ii = serial.available();
-   newlogger << "S serial.available = " << ii<< endl;
+    ii = serial.available();
+    newlogger << "S serial.available = " << ii<< endl;
 
     serial.readString(buffer, '\n', 254, 1000);
     newlogger << "S serial.readString = " << buffer << endl;
 
 
-  serial.writeChar('Q');
+    serial.writeChar('Q');
 //  this_thread::sleep_for(100ms);
 
    ii = serial.available();
