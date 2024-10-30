@@ -35,6 +35,7 @@
 
 using namespace std;
 using namespace std::literals::chrono_literals;
+using vv = std::vector<std::vector<uint32_t>>;
 
 //#define SERIAL_PORT "\\\\.\\COM1"
 //const string SERIAL_PORT{"\\\\.\\COM19"};
@@ -57,7 +58,7 @@ uint32_t outputs7, outputs8, ticks7, ticks8;
 uint32_t outputs9, outputs10, ticks9, ticks10;
 uint32_t outputs11, ticks11;
 
-uint32_t check(string param){
+/*uint32_t check(string param){
 
     try{
         uint32_t result = stod(param);
@@ -73,7 +74,19 @@ uint32_t check(string param){
          return 0;
     }
 
-    }//check
+    }//check*/
+
+uint32_t check(std::string param){
+            uint32_t result = stoi(param);
+            newlogger << result << " ";
+            if (result >= 0){
+                return uint32_t(result);
+            }
+            else{
+                throw std::invalid_argument("Result isn't integer type\n");
+            }
+}
+
 
 
 bool ShowParameterText(string param, pugi::xml_node node)
@@ -164,13 +177,178 @@ uint32_t GetOutputs(uint32_t RF, uint32_t SW, uint32_t ADC, uint32_t GRU){
     return outputs;
 }
 
+// xml handler
+    vv& evalXml(int argc, char ** argv, vv& vec){
+        // Handle input xml
+    try {
+        if (argc < 2) {
+            throw std::invalid_argument("Incorrect number of arguments\n");
+        }
+
+        newlogger << "Try to load file...\n";
+        pugi::xml_parse_result result = doc.load_file(argv[1]);
+
+        if (!result) {
+             throw std::invalid_argument("Error in loading file:\n");
+        }
+    }
+    catch(const std::invalid_argument& e) {
+        newlogger << e.what();
+        return 6;
+    }
+
+    newlogger << "External structure is ok\n";
+
+    newlogger << "ParamCount = ";
+
+    // Check, is this file stucture fits us
+    uint32_t ParamCount =  utilityFunctions::check(doc.child("root").child("ParamCount").text().get());
+    std::cout << ParamCount << '\n';
+    std::vector<uint32_t> RF_array(ParamCount);
+    std::vector<uint32_t> SW_array(ParamCount);
+    std::vector<uint32_t> ADC_array(ParamCount);
+    std::vector<uint32_t> GX_array(ParamCount);
+    std::vector<uint32_t> GY_array(ParamCount);
+    std::vector<uint32_t> GZ_array(ParamCount);
+    std::vector<uint32_t> CL_array(ParamCount);
+
+    try {
+        for (size_t i = 1; i <= ParamCount; i++){
+            std::string param1 = "RF"+std::to_string(i);
+            std::string param2 = "SW"+std::to_string(i);
+            std::string param3 = "ADC"+std::to_string(i);
+            std::string param4 = "GX"+std::to_string(i);
+            std::string param5 = "GY"+std::to_string(i);
+            std::string param6 = "GZ"+std::to_string(i);
+            std::string param7 = "CL"+std::to_string(i);
+
+            // Find necessary tag and put variable in array
+            RF_array[i] = utilityFunctions::check(doc.child("root").child("RF").child(param1.c_str()).text().get());
+            SW_array[i] = utilityFunctions::check(doc.child("root").child("SW").child(param2.c_str()).text().get());
+            ADC_array[i] = utilityFunctions::check(doc.child("root").child("ADC").child(param3.c_str()).text().get());
+            GX_array[i] = utilityFunctions::check(doc.child("root").child("GX").child(param4.c_str()).text().get());
+            GY_array[i] = utilityFunctions::check(doc.child("root").child("GY").child(param5.c_str()).text().get());
+            GZ_array[i] = utilityFunctions::check(doc.child("root").child("GZ").child(param6.c_str()).text().get());
+            CL_array[i] = utilityFunctions::check(doc.child("root").child("CL").child(param7.c_str()).text().get());
+
+            // Condition for correctness
+            if(!utilityFunctions::ShowParameterText(param1, doc.child("root").child("RF").child(param1.c_str())) &&
+                                  !utilityFunctions::ShowParameterText(param2, doc.child("root").child("SW").child(param2.c_str())) &&
+                                  !utilityFunctions::ShowParameterText(param3, doc.child("root").child("ADC").child(param3.c_str())) &&
+                                  !utilityFunctions::ShowParameterText(param4, doc.child("root").child("GX").child(param4.c_str())) &&
+                                  !utilityFunctions::ShowParameterText(param5, doc.child("root").child("GY").child(param5.c_str())) &&
+                                  !utilityFunctions::ShowParameterText(param6, doc.child("root").child("GZ").child(param6.c_str())) &&
+                                  !utilityFunctions::ShowParameterText(param7, doc.child("root").child("CL").child(param7.c_str()))){
+               throw std::invalid_argument("Incorrect xml structure\n");
+            }
+        }
+    }
+    catch(const std::invalid_argument& e){
+	newlogger << e.what() << '\n';
+        return 5;
+    }
+    newlogger << "Correct internal structure of xml\n";
+    vec.push_back(RF_array);
+    vec.push_back(SW_array);
+    vec.push_back(ADC_array);
+    vec.push_back(GX_array);
+    vec.push_back(GY_array);
+    vec.push_back(GZ_array);
+    vec.push_back(CL_array);
+    //doc.save(std::cout);
+    return vec;
+    }
+
+    // csv handler
+    vv& evalCsv(int argc, char** argv, vv& vec){
+        std::string filename = argv[1];
+       std::ifstream work_file(filename);
+    std::string line;
+    char delimiter = ',';
+    uint32_t csv_row_counter = 0;
+    uint32_t ticks{0};
+
+    std::vector<uint32_t> RF_list;
+    std::vector<uint32_t> TR_SW_list;
+    std::vector<uint32_t> ADC_list;
+    std::vector<uint32_t> GRAD_list;
+    std::vector<uint32_t> CYCLES_NUM_list;
+
+    while (getline(work_file, line))
+    {
+        std::stringstream stream(line);
+        std::string RF, TR_SW, ADC, GRAD, CYCLES_NUM, del_;
+
+        std::getline(stream, RF, delimiter);
+        std::getline(stream, TR_SW, delimiter);
+        std::getline(stream, ADC, delimiter);
+        std::getline(stream, GRAD, delimiter);
+        std::getline(stream, CYCLES_NUM, delimiter);
+	RF_list.push_back(stoi(RF));
+        TR_SW_list.push_back(stoi(TR_SW));
+        ADC_list.push_back(stoi(ADC));
+        GRAD_list.push_back(stoi(GRAD));
+        CYCLES_NUM_list.push_back(stoi(CYCLES_NUM));
+
+        std::cout << "==================" << '\n';
+        std::cout << "RF: " << RF << '\n';
+        std::cout << "TR_SW: " << TR_SW << '\n';
+        std::cout << "ADC: " << ADC << '\n';
+        std::cout << "GRAD: " << GRAD << '\n';
+        std::cout << "CYCLES_NUM: " << CYCLES_NUM<< '\n';
+        csv_row_counter += 1;
+        ticks += stoi(CYCLES_NUM);
+
+    }
+	work_file.close();
+//    auto iter_rf = RF_list.begin();
+//    auto iter_tr_sw = TR_SW_list.begin();
+//    auto iter_adc = ADC_list.begin();
+//    auto iter_grad = GRAD_list.begin();
+//    auto iter_cycles = CYCLES_NUM_list.begin();
+
+//    for (int i=0; i<csv_row_counter;i++){
+//        cout << *iter_rf;
+//        iter_rf++;
+//    }
+    //end of reading pulse sequence from csv file
+	vec.push_back(RF_list);
+	vec.push_back(TR_SW_list);
+        vec.push_back(ADC_list);
+        vec.push_back(GRAD_list);
+        vec.push_back(CYCLES_NUM_list);
+    }
+    return vec;
+}
+
 int main()
 {
     newlogger.enableConsoleOutput(true);
 
 // READING XML FILE
+    pugi::xml_document doc;
+    newlogger << "Start...\n";
+     std::string fileName = argv[1];
+        newlogger << "File: " << fileName << "\n";
 
-    const string filepath{""};
+        size_t fileNameSize = fileName.size();
+	std::vector<std::vector> returnmentValues;
+	try {
+        if (fileNameSize <= 4 || fileName.substr(fileNameSize - 3, 3) != "xml") {
+            if(fileName.substr(fileNameSize - 3, 3) != "csv") {
+            throw std::invalid_argument("Incorrect file name or size\n");
+        }
+        else {
+            if(fileName.substr(fileNameSize - 3, 3) == "xml") returnmentValues = evalXml(argc, arg, returnmentValues);
+            else returnmentValues = evalCsv(argc, argv, returnmentValues);
+        }
+	}
+	catch(const std::invalid_argument& e){
+		newlogger << e.what << '\n';
+		return 5;
+	}
+
+    /*const string filepath{""};
     const string filename{"sync_v2.xml"};
 
     newlogger << filepath+filename << endl;
@@ -224,7 +402,7 @@ int main()
         //ShowParameterText(param4, doc.child("root").child("GRU").child(param4.c_str()));
         ShowParameterText(param5, doc.child("root").child("CL").child(param5.c_str()));
     }//for
-    doc.save(out);
+    doc.save(out);*/
 
 const string OutFilePath {"D:\Synchronisation\dueppwinserial"};
 const string OutFileName {"0000"};
