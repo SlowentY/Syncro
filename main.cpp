@@ -137,12 +137,12 @@ uint32_t GetOutputs(uint32_t RF, uint32_t SW, uint32_t ADC, uint32_t GRU){
     switch(SW){
     case 0:
         outputs = outputs&0xFFFFFFEF;
-        debug_ss << "SW 0"<<endl;
+        debug_ss << "SW 0" << endl;
         break;
 
     case 1:
         outputs = outputs|0x00000010;
-        debug_ss << "SW 1"<<endl;
+        debug_ss << "SW 1" <<endl;
         break;
 
     }//end switch SW
@@ -180,8 +180,8 @@ uint32_t GetOutputs(uint32_t RF, uint32_t SW, uint32_t ADC, uint32_t GRU){
 
     debug_ss << hex << outputs << endl;
 
-    if(en_debug)
-        newlogger << LogPref::Flag(DEBUG) << debug_ss.str();
+   // if(en_debug)
+   //     newlogger << LogPref::Flag(DEBUG) << debug_ss.str();
 
     return outputs;
 }
@@ -539,6 +539,7 @@ string OutFile;
             status = due_add_event(&program1, XML_outputs,returnmentValues[6][i]);
         freopen("CON", "w", stdout);
         if(en_debug)
+            newlogger << LogPref::Flag(DEBUG) << "Analise Node " << i << "/" << ParamCount << "..." << std::endl;
             newlogger << LogPref::Flag(status+DEBUG) << dstr;
         strcpy(dstr,"duepp: Everything is allright\n");
     }
@@ -565,8 +566,10 @@ string OutFile;
     setbuf(stdout, dstr);
         status = due_dump_program(&program1);
     freopen("CON", "w", stdout);
+    dstr[strlen(dstr)-1] = '\0'; // There is strange nosense 4, so I cut it
+    dstr[strlen(dstr)-1] = '\0';
     if(en_debug)
-        newlogger << LogPref::Flag(status+DEBUG) << "duepp: Get program dump:\n" << dstr;
+        newlogger << LogPref::Flag(status+DEBUG) << "duepp: Get program dump:\n" << dstr << endl;
     strcpy(dstr,"duepp: Everything is allright\n");
 
     // Getting hex program
@@ -614,7 +617,9 @@ string OutFile;
     setbuf(stdout, dstr);
         status = due_download_prog_save_to_file_command(fd, &program1);
     freopen("CON", "w", stdout);
-    newlogger << LogPref::Flag(status+DEBUG) << dstr;
+    dstr[strlen(dstr)-1] = '\0'; // There is strange nosense 4, so I cut it
+    dstr[strlen(dstr)-1] = '\0';
+    newlogger << LogPref::Flag(status+DEBUG) << dstr << endl;
     strcpy(dstr,"duepp: Everything is allright\n");
 
     close(fd);

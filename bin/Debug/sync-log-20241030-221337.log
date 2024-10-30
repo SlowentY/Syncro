@@ -1,0 +1,1210 @@
+[2024-10-30 22:13:37:931] / [INFO]	Start...
+[2024-10-30 22:13:37:931] / [INFO]	File: sync_v2.xml
+[2024-10-30 22:13:37:931] / [INFO]	Try to load file...
+[2024-10-30 22:13:37:932] / [OK]	External XML structure is OK
+[2024-10-30 22:13:37:932] / [DEBUG]	ParamCount = 326
+[2024-10-30 22:13:37:966] / [OK]	Internal structure of XML is OK
+[2024-10-30 22:13:37:966] / [DONE]	File loaded successfully
+[2024-10-30 22:13:37:966] / [INFO]	Creating synchronization program...
+[2024-10-30 22:13:37:967] / [DEBUG]	Analise Node 0/326...
+[2024-10-30 22:13:37:967] / [ERROR]	duepp: Got due_add_event with 0 ticks. Must be at least: 10
+[2024-10-30 22:13:37:968] / [DEBUG]	Analise Node 1/326...
+[2024-10-30 22:13:37:969] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:37:969] / [DEBUG]	Analise Node 2/326...
+[2024-10-30 22:13:37:969] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:970] / [DEBUG]	Analise Node 3/326...
+[2024-10-30 22:13:37:970] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:971] / [DEBUG]	Analise Node 4/326...
+[2024-10-30 22:13:37:971] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:971] / [DEBUG]	Analise Node 5/326...
+[2024-10-30 22:13:37:971] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:972] / [DEBUG]	Analise Node 6/326...
+[2024-10-30 22:13:37:972] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:973] / [DEBUG]	Analise Node 7/326...
+[2024-10-30 22:13:37:973] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:974] / [DEBUG]	Analise Node 8/326...
+[2024-10-30 22:13:37:974] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:37:975] / [DEBUG]	Analise Node 9/326...
+[2024-10-30 22:13:37:975] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:975] / [DEBUG]	Analise Node 10/326...
+[2024-10-30 22:13:37:975] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:976] / [DEBUG]	Analise Node 11/326...
+[2024-10-30 22:13:37:976] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:977] / [DEBUG]	Analise Node 12/326...
+[2024-10-30 22:13:37:977] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:977] / [DEBUG]	Analise Node 13/326...
+[2024-10-30 22:13:37:977] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:978] / [DEBUG]	Analise Node 14/326...
+[2024-10-30 22:13:37:978] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:979] / [DEBUG]	Analise Node 15/326...
+[2024-10-30 22:13:37:979] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:37:980] / [DEBUG]	Analise Node 16/326...
+[2024-10-30 22:13:37:980] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:980] / [DEBUG]	Analise Node 17/326...
+[2024-10-30 22:13:37:980] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:981] / [DEBUG]	Analise Node 18/326...
+[2024-10-30 22:13:37:981] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:982] / [DEBUG]	Analise Node 19/326...
+[2024-10-30 22:13:37:982] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:982] / [DEBUG]	Analise Node 20/326...
+[2024-10-30 22:13:37:982] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:983] / [DEBUG]	Analise Node 21/326...
+[2024-10-30 22:13:37:983] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:984] / [DEBUG]	Analise Node 22/326...
+[2024-10-30 22:13:37:984] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:37:985] / [DEBUG]	Analise Node 23/326...
+[2024-10-30 22:13:37:985] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:985] / [DEBUG]	Analise Node 24/326...
+[2024-10-30 22:13:37:985] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:986] / [DEBUG]	Analise Node 25/326...
+[2024-10-30 22:13:37:986] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:987] / [DEBUG]	Analise Node 26/326...
+[2024-10-30 22:13:37:987] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:987] / [DEBUG]	Analise Node 27/326...
+[2024-10-30 22:13:37:987] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:987] / [DEBUG]	Analise Node 28/326...
+[2024-10-30 22:13:37:987] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:988] / [DEBUG]	Analise Node 29/326...
+[2024-10-30 22:13:37:988] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:37:989] / [DEBUG]	Analise Node 30/326...
+[2024-10-30 22:13:37:989] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:989] / [DEBUG]	Analise Node 31/326...
+[2024-10-30 22:13:37:989] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:991] / [DEBUG]	Analise Node 32/326...
+[2024-10-30 22:13:37:991] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:991] / [DEBUG]	Analise Node 33/326...
+[2024-10-30 22:13:37:992] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:993] / [DEBUG]	Analise Node 34/326...
+[2024-10-30 22:13:37:993] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:994] / [DEBUG]	Analise Node 35/326...
+[2024-10-30 22:13:37:994] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:994] / [DEBUG]	Analise Node 36/326...
+[2024-10-30 22:13:37:994] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:37:995] / [DEBUG]	Analise Node 37/326...
+[2024-10-30 22:13:37:995] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:996] / [DEBUG]	Analise Node 38/326...
+[2024-10-30 22:13:37:996] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:996] / [DEBUG]	Analise Node 39/326...
+[2024-10-30 22:13:37:996] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:997] / [DEBUG]	Analise Node 40/326...
+[2024-10-30 22:13:37:997] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:998] / [DEBUG]	Analise Node 41/326...
+[2024-10-30 22:13:37:998] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:998] / [DEBUG]	Analise Node 42/326...
+[2024-10-30 22:13:37:998] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:37:999] / [DEBUG]	Analise Node 43/326...
+[2024-10-30 22:13:37:999] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:0] / [DEBUG]	Analise Node 44/326...
+[2024-10-30 22:13:38:0] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:1] / [DEBUG]	Analise Node 45/326...
+[2024-10-30 22:13:38:1] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:1] / [DEBUG]	Analise Node 46/326...
+[2024-10-30 22:13:38:1] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:2] / [DEBUG]	Analise Node 47/326...
+[2024-10-30 22:13:38:2] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:3] / [DEBUG]	Analise Node 48/326...
+[2024-10-30 22:13:38:3] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:3] / [DEBUG]	Analise Node 49/326...
+[2024-10-30 22:13:38:3] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:3] / [DEBUG]	Analise Node 50/326...
+[2024-10-30 22:13:38:3] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:4] / [DEBUG]	Analise Node 51/326...
+[2024-10-30 22:13:38:4] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:5] / [DEBUG]	Analise Node 52/326...
+[2024-10-30 22:13:38:5] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:5] / [DEBUG]	Analise Node 53/326...
+[2024-10-30 22:13:38:5] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:6] / [DEBUG]	Analise Node 54/326...
+[2024-10-30 22:13:38:6] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:7] / [DEBUG]	Analise Node 55/326...
+[2024-10-30 22:13:38:7] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:7] / [DEBUG]	Analise Node 56/326...
+[2024-10-30 22:13:38:7] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:8] / [DEBUG]	Analise Node 57/326...
+[2024-10-30 22:13:38:8] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:10] / [DEBUG]	Analise Node 58/326...
+[2024-10-30 22:13:38:10] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:11] / [DEBUG]	Analise Node 59/326...
+[2024-10-30 22:13:38:11] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:11] / [DEBUG]	Analise Node 60/326...
+[2024-10-30 22:13:38:11] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:12] / [DEBUG]	Analise Node 61/326...
+[2024-10-30 22:13:38:12] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:13] / [DEBUG]	Analise Node 62/326...
+[2024-10-30 22:13:38:13] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:13] / [DEBUG]	Analise Node 63/326...
+[2024-10-30 22:13:38:13] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:13] / [DEBUG]	Analise Node 64/326...
+[2024-10-30 22:13:38:13] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:14] / [DEBUG]	Analise Node 65/326...
+[2024-10-30 22:13:38:14] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:15] / [DEBUG]	Analise Node 66/326...
+[2024-10-30 22:13:38:15] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:15] / [DEBUG]	Analise Node 67/326...
+[2024-10-30 22:13:38:15] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:16] / [DEBUG]	Analise Node 68/326...
+[2024-10-30 22:13:38:16] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:17] / [DEBUG]	Analise Node 69/326...
+[2024-10-30 22:13:38:17] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:17] / [DEBUG]	Analise Node 70/326...
+[2024-10-30 22:13:38:17] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:18] / [DEBUG]	Analise Node 71/326...
+[2024-10-30 22:13:38:18] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:19] / [DEBUG]	Analise Node 72/326...
+[2024-10-30 22:13:38:19] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:20] / [DEBUG]	Analise Node 73/326...
+[2024-10-30 22:13:38:20] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:20] / [DEBUG]	Analise Node 74/326...
+[2024-10-30 22:13:38:20] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:21] / [DEBUG]	Analise Node 75/326...
+[2024-10-30 22:13:38:21] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:22] / [DEBUG]	Analise Node 76/326...
+[2024-10-30 22:13:38:22] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:22] / [DEBUG]	Analise Node 77/326...
+[2024-10-30 22:13:38:22] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:23] / [DEBUG]	Analise Node 78/326...
+[2024-10-30 22:13:38:23] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:24] / [DEBUG]	Analise Node 79/326...
+[2024-10-30 22:13:38:24] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:25] / [DEBUG]	Analise Node 80/326...
+[2024-10-30 22:13:38:25] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:26] / [DEBUG]	Analise Node 81/326...
+[2024-10-30 22:13:38:26] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:27] / [DEBUG]	Analise Node 82/326...
+[2024-10-30 22:13:38:27] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:27] / [DEBUG]	Analise Node 83/326...
+[2024-10-30 22:13:38:27] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:28] / [DEBUG]	Analise Node 84/326...
+[2024-10-30 22:13:38:28] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:29] / [DEBUG]	Analise Node 85/326...
+[2024-10-30 22:13:38:29] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:30] / [DEBUG]	Analise Node 86/326...
+[2024-10-30 22:13:38:30] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:30] / [DEBUG]	Analise Node 87/326...
+[2024-10-30 22:13:38:30] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:31] / [DEBUG]	Analise Node 88/326...
+[2024-10-30 22:13:38:31] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:32] / [DEBUG]	Analise Node 89/326...
+[2024-10-30 22:13:38:32] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:32] / [DEBUG]	Analise Node 90/326...
+[2024-10-30 22:13:38:32] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:33] / [DEBUG]	Analise Node 91/326...
+[2024-10-30 22:13:38:33] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:34] / [DEBUG]	Analise Node 92/326...
+[2024-10-30 22:13:38:34] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:34] / [DEBUG]	Analise Node 93/326...
+[2024-10-30 22:13:38:35] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:35] / [DEBUG]	Analise Node 94/326...
+[2024-10-30 22:13:38:35] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:36] / [DEBUG]	Analise Node 95/326...
+[2024-10-30 22:13:38:36] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:37] / [DEBUG]	Analise Node 96/326...
+[2024-10-30 22:13:38:37] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:37] / [DEBUG]	Analise Node 97/326...
+[2024-10-30 22:13:38:37] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:38] / [DEBUG]	Analise Node 98/326...
+[2024-10-30 22:13:38:38] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:39] / [DEBUG]	Analise Node 99/326...
+[2024-10-30 22:13:38:39] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:40] / [DEBUG]	Analise Node 100/326...
+[2024-10-30 22:13:38:40] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:40] / [DEBUG]	Analise Node 101/326...
+[2024-10-30 22:13:38:40] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:41] / [DEBUG]	Analise Node 102/326...
+[2024-10-30 22:13:38:41] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:42] / [DEBUG]	Analise Node 103/326...
+[2024-10-30 22:13:38:42] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:43] / [DEBUG]	Analise Node 104/326...
+[2024-10-30 22:13:38:43] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:44] / [DEBUG]	Analise Node 105/326...
+[2024-10-30 22:13:38:44] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:45] / [DEBUG]	Analise Node 106/326...
+[2024-10-30 22:13:38:45] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:46] / [DEBUG]	Analise Node 107/326...
+[2024-10-30 22:13:38:46] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:46] / [DEBUG]	Analise Node 108/326...
+[2024-10-30 22:13:38:46] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:47] / [DEBUG]	Analise Node 109/326...
+[2024-10-30 22:13:38:47] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:48] / [DEBUG]	Analise Node 110/326...
+[2024-10-30 22:13:38:48] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:48] / [DEBUG]	Analise Node 111/326...
+[2024-10-30 22:13:38:48] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:49] / [DEBUG]	Analise Node 112/326...
+[2024-10-30 22:13:38:49] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:50] / [DEBUG]	Analise Node 113/326...
+[2024-10-30 22:13:38:50] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:50] / [DEBUG]	Analise Node 114/326...
+[2024-10-30 22:13:38:50] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:51] / [DEBUG]	Analise Node 115/326...
+[2024-10-30 22:13:38:51] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:52] / [DEBUG]	Analise Node 116/326...
+[2024-10-30 22:13:38:52] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:53] / [DEBUG]	Analise Node 117/326...
+[2024-10-30 22:13:38:53] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:53] / [DEBUG]	Analise Node 118/326...
+[2024-10-30 22:13:38:53] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:54] / [DEBUG]	Analise Node 119/326...
+[2024-10-30 22:13:38:54] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:55] / [DEBUG]	Analise Node 120/326...
+[2024-10-30 22:13:38:55] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:56] / [DEBUG]	Analise Node 121/326...
+[2024-10-30 22:13:38:56] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:56] / [DEBUG]	Analise Node 122/326...
+[2024-10-30 22:13:38:56] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:56] / [DEBUG]	Analise Node 123/326...
+[2024-10-30 22:13:38:56] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:57] / [DEBUG]	Analise Node 124/326...
+[2024-10-30 22:13:38:57] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:58] / [DEBUG]	Analise Node 125/326...
+[2024-10-30 22:13:38:58] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:59] / [DEBUG]	Analise Node 126/326...
+[2024-10-30 22:13:38:59] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:59] / [DEBUG]	Analise Node 127/326...
+[2024-10-30 22:13:38:60] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:60] / [DEBUG]	Analise Node 128/326...
+[2024-10-30 22:13:38:60] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:61] / [DEBUG]	Analise Node 129/326...
+[2024-10-30 22:13:38:61] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:62] / [DEBUG]	Analise Node 130/326...
+[2024-10-30 22:13:38:62] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:62] / [DEBUG]	Analise Node 131/326...
+[2024-10-30 22:13:38:62] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:64] / [DEBUG]	Analise Node 132/326...
+[2024-10-30 22:13:38:64] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:65] / [DEBUG]	Analise Node 133/326...
+[2024-10-30 22:13:38:65] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:65] / [DEBUG]	Analise Node 134/326...
+[2024-10-30 22:13:38:65] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:65] / [DEBUG]	Analise Node 135/326...
+[2024-10-30 22:13:38:65] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:66] / [DEBUG]	Analise Node 136/326...
+[2024-10-30 22:13:38:66] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:67] / [DEBUG]	Analise Node 137/326...
+[2024-10-30 22:13:38:67] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:67] / [DEBUG]	Analise Node 138/326...
+[2024-10-30 22:13:38:67] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:68] / [DEBUG]	Analise Node 139/326...
+[2024-10-30 22:13:38:68] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:69] / [DEBUG]	Analise Node 140/326...
+[2024-10-30 22:13:38:69] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:69] / [DEBUG]	Analise Node 141/326...
+[2024-10-30 22:13:38:69] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:70] / [DEBUG]	Analise Node 142/326...
+[2024-10-30 22:13:38:70] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:71] / [DEBUG]	Analise Node 143/326...
+[2024-10-30 22:13:38:71] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:72] / [DEBUG]	Analise Node 144/326...
+[2024-10-30 22:13:38:72] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:73] / [DEBUG]	Analise Node 145/326...
+[2024-10-30 22:13:38:73] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:73] / [DEBUG]	Analise Node 146/326...
+[2024-10-30 22:13:38:73] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:74] / [DEBUG]	Analise Node 147/326...
+[2024-10-30 22:13:38:74] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:75] / [DEBUG]	Analise Node 148/326...
+[2024-10-30 22:13:38:75] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:76] / [DEBUG]	Analise Node 149/326...
+[2024-10-30 22:13:38:76] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:76] / [DEBUG]	Analise Node 150/326...
+[2024-10-30 22:13:38:76] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:77] / [DEBUG]	Analise Node 151/326...
+[2024-10-30 22:13:38:77] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:78] / [DEBUG]	Analise Node 152/326...
+[2024-10-30 22:13:38:78] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:78] / [DEBUG]	Analise Node 153/326...
+[2024-10-30 22:13:38:79] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:79] / [DEBUG]	Analise Node 154/326...
+[2024-10-30 22:13:38:79] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:80] / [DEBUG]	Analise Node 155/326...
+[2024-10-30 22:13:38:80] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:81] / [DEBUG]	Analise Node 156/326...
+[2024-10-30 22:13:38:81] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:81] / [DEBUG]	Analise Node 157/326...
+[2024-10-30 22:13:38:81] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:82] / [DEBUG]	Analise Node 158/326...
+[2024-10-30 22:13:38:82] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:83] / [DEBUG]	Analise Node 159/326...
+[2024-10-30 22:13:38:83] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:84] / [DEBUG]	Analise Node 160/326...
+[2024-10-30 22:13:38:84] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:84] / [DEBUG]	Analise Node 161/326...
+[2024-10-30 22:13:38:84] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:85] / [DEBUG]	Analise Node 162/326...
+[2024-10-30 22:13:38:85] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:86] / [DEBUG]	Analise Node 163/326...
+[2024-10-30 22:13:38:86] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:87] / [DEBUG]	Analise Node 164/326...
+[2024-10-30 22:13:38:87] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:87] / [DEBUG]	Analise Node 165/326...
+[2024-10-30 22:13:38:88] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:88] / [DEBUG]	Analise Node 166/326...
+[2024-10-30 22:13:38:88] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:89] / [DEBUG]	Analise Node 167/326...
+[2024-10-30 22:13:38:89] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:90] / [DEBUG]	Analise Node 168/326...
+[2024-10-30 22:13:38:90] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:91] / [DEBUG]	Analise Node 169/326...
+[2024-10-30 22:13:38:91] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:92] / [DEBUG]	Analise Node 170/326...
+[2024-10-30 22:13:38:92] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:93] / [DEBUG]	Analise Node 171/326...
+[2024-10-30 22:13:38:93] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:93] / [DEBUG]	Analise Node 172/326...
+[2024-10-30 22:13:38:93] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:94] / [DEBUG]	Analise Node 173/326...
+[2024-10-30 22:13:38:94] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:95] / [DEBUG]	Analise Node 174/326...
+[2024-10-30 22:13:38:95] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:95] / [DEBUG]	Analise Node 175/326...
+[2024-10-30 22:13:38:95] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:96] / [DEBUG]	Analise Node 176/326...
+[2024-10-30 22:13:38:96] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:97] / [DEBUG]	Analise Node 177/326...
+[2024-10-30 22:13:38:97] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:98] / [DEBUG]	Analise Node 178/326...
+[2024-10-30 22:13:38:98] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:99] / [DEBUG]	Analise Node 179/326...
+[2024-10-30 22:13:38:99] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:99] / [DEBUG]	Analise Node 180/326...
+[2024-10-30 22:13:38:99] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:100] / [DEBUG]	Analise Node 181/326...
+[2024-10-30 22:13:38:100] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:101] / [DEBUG]	Analise Node 182/326...
+[2024-10-30 22:13:38:101] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:101] / [DEBUG]	Analise Node 183/326...
+[2024-10-30 22:13:38:101] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:102] / [DEBUG]	Analise Node 184/326...
+[2024-10-30 22:13:38:102] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:103] / [DEBUG]	Analise Node 185/326...
+[2024-10-30 22:13:38:103] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:103] / [DEBUG]	Analise Node 186/326...
+[2024-10-30 22:13:38:103] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:104] / [DEBUG]	Analise Node 187/326...
+[2024-10-30 22:13:38:104] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:105] / [DEBUG]	Analise Node 188/326...
+[2024-10-30 22:13:38:105] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:106] / [DEBUG]	Analise Node 189/326...
+[2024-10-30 22:13:38:106] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:106] / [DEBUG]	Analise Node 190/326...
+[2024-10-30 22:13:38:106] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:107] / [DEBUG]	Analise Node 191/326...
+[2024-10-30 22:13:38:107] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:108] / [DEBUG]	Analise Node 192/326...
+[2024-10-30 22:13:38:108] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:109] / [DEBUG]	Analise Node 193/326...
+[2024-10-30 22:13:38:109] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:109] / [DEBUG]	Analise Node 194/326...
+[2024-10-30 22:13:38:109] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:110] / [DEBUG]	Analise Node 195/326...
+[2024-10-30 22:13:38:110] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:111] / [DEBUG]	Analise Node 196/326...
+[2024-10-30 22:13:38:111] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:111] / [DEBUG]	Analise Node 197/326...
+[2024-10-30 22:13:38:111] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:112] / [DEBUG]	Analise Node 198/326...
+[2024-10-30 22:13:38:112] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:113] / [DEBUG]	Analise Node 199/326...
+[2024-10-30 22:13:38:113] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:113] / [DEBUG]	Analise Node 200/326...
+[2024-10-30 22:13:38:114] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:115] / [DEBUG]	Analise Node 201/326...
+[2024-10-30 22:13:38:115] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:116] / [DEBUG]	Analise Node 202/326...
+[2024-10-30 22:13:38:116] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:116] / [DEBUG]	Analise Node 203/326...
+[2024-10-30 22:13:38:116] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:117] / [DEBUG]	Analise Node 204/326...
+[2024-10-30 22:13:38:117] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:118] / [DEBUG]	Analise Node 205/326...
+[2024-10-30 22:13:38:118] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:118] / [DEBUG]	Analise Node 206/326...
+[2024-10-30 22:13:38:118] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:118] / [DEBUG]	Analise Node 207/326...
+[2024-10-30 22:13:38:118] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:119] / [DEBUG]	Analise Node 208/326...
+[2024-10-30 22:13:38:119] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:120] / [DEBUG]	Analise Node 209/326...
+[2024-10-30 22:13:38:120] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:120] / [DEBUG]	Analise Node 210/326...
+[2024-10-30 22:13:38:120] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:121] / [DEBUG]	Analise Node 211/326...
+[2024-10-30 22:13:38:121] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:122] / [DEBUG]	Analise Node 212/326...
+[2024-10-30 22:13:38:122] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:123] / [DEBUG]	Analise Node 213/326...
+[2024-10-30 22:13:38:123] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:123] / [DEBUG]	Analise Node 214/326...
+[2024-10-30 22:13:38:123] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:124] / [DEBUG]	Analise Node 215/326...
+[2024-10-30 22:13:38:124] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:125] / [DEBUG]	Analise Node 216/326...
+[2024-10-30 22:13:38:125] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:126] / [DEBUG]	Analise Node 217/326...
+[2024-10-30 22:13:38:126] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:126] / [DEBUG]	Analise Node 218/326...
+[2024-10-30 22:13:38:127] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:127] / [DEBUG]	Analise Node 219/326...
+[2024-10-30 22:13:38:127] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:128] / [DEBUG]	Analise Node 220/326...
+[2024-10-30 22:13:38:128] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:129] / [DEBUG]	Analise Node 221/326...
+[2024-10-30 22:13:38:129] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:129] / [DEBUG]	Analise Node 222/326...
+[2024-10-30 22:13:38:129] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:130] / [DEBUG]	Analise Node 223/326...
+[2024-10-30 22:13:38:130] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:131] / [DEBUG]	Analise Node 224/326...
+[2024-10-30 22:13:38:131] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:131] / [DEBUG]	Analise Node 225/326...
+[2024-10-30 22:13:38:132] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:133] / [DEBUG]	Analise Node 226/326...
+[2024-10-30 22:13:38:133] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:133] / [DEBUG]	Analise Node 227/326...
+[2024-10-30 22:13:38:133] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:134] / [DEBUG]	Analise Node 228/326...
+[2024-10-30 22:13:38:134] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:135] / [DEBUG]	Analise Node 229/326...
+[2024-10-30 22:13:38:135] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:136] / [DEBUG]	Analise Node 230/326...
+[2024-10-30 22:13:38:136] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:136] / [DEBUG]	Analise Node 231/326...
+[2024-10-30 22:13:38:136] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:137] / [DEBUG]	Analise Node 232/326...
+[2024-10-30 22:13:38:137] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:138] / [DEBUG]	Analise Node 233/326...
+[2024-10-30 22:13:38:138] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:138] / [DEBUG]	Analise Node 234/326...
+[2024-10-30 22:13:38:138] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:139] / [DEBUG]	Analise Node 235/326...
+[2024-10-30 22:13:38:139] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:140] / [DEBUG]	Analise Node 236/326...
+[2024-10-30 22:13:38:140] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:141] / [DEBUG]	Analise Node 237/326...
+[2024-10-30 22:13:38:141] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:142] / [DEBUG]	Analise Node 238/326...
+[2024-10-30 22:13:38:142] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:142] / [DEBUG]	Analise Node 239/326...
+[2024-10-30 22:13:38:143] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:143] / [DEBUG]	Analise Node 240/326...
+[2024-10-30 22:13:38:143] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:144] / [DEBUG]	Analise Node 241/326...
+[2024-10-30 22:13:38:144] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:145] / [DEBUG]	Analise Node 242/326...
+[2024-10-30 22:13:38:145] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:145] / [DEBUG]	Analise Node 243/326...
+[2024-10-30 22:13:38:146] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:146] / [DEBUG]	Analise Node 244/326...
+[2024-10-30 22:13:38:146] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:147] / [DEBUG]	Analise Node 245/326...
+[2024-10-30 22:13:38:147] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:147] / [DEBUG]	Analise Node 246/326...
+[2024-10-30 22:13:38:147] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:148] / [DEBUG]	Analise Node 247/326...
+[2024-10-30 22:13:38:148] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:148] / [DEBUG]	Analise Node 248/326...
+[2024-10-30 22:13:38:148] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:150] / [DEBUG]	Analise Node 249/326...
+[2024-10-30 22:13:38:150] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:151] / [DEBUG]	Analise Node 250/326...
+[2024-10-30 22:13:38:151] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:151] / [DEBUG]	Analise Node 251/326...
+[2024-10-30 22:13:38:151] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:152] / [DEBUG]	Analise Node 252/326...
+[2024-10-30 22:13:38:152] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:153] / [DEBUG]	Analise Node 253/326...
+[2024-10-30 22:13:38:153] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:153] / [DEBUG]	Analise Node 254/326...
+[2024-10-30 22:13:38:153] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:153] / [DEBUG]	Analise Node 255/326...
+[2024-10-30 22:13:38:153] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:154] / [DEBUG]	Analise Node 256/326...
+[2024-10-30 22:13:38:154] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:155] / [DEBUG]	Analise Node 257/326...
+[2024-10-30 22:13:38:155] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:155] / [DEBUG]	Analise Node 258/326...
+[2024-10-30 22:13:38:155] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:156] / [DEBUG]	Analise Node 259/326...
+[2024-10-30 22:13:38:156] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:158] / [DEBUG]	Analise Node 260/326...
+[2024-10-30 22:13:38:158] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:158] / [DEBUG]	Analise Node 261/326...
+[2024-10-30 22:13:38:158] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:159] / [DEBUG]	Analise Node 262/326...
+[2024-10-30 22:13:38:159] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:160] / [DEBUG]	Analise Node 263/326...
+[2024-10-30 22:13:38:160] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:161] / [DEBUG]	Analise Node 264/326...
+[2024-10-30 22:13:38:161] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:161] / [DEBUG]	Analise Node 265/326...
+[2024-10-30 22:13:38:161] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:162] / [DEBUG]	Analise Node 266/326...
+[2024-10-30 22:13:38:162] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:163] / [DEBUG]	Analise Node 267/326...
+[2024-10-30 22:13:38:163] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:163] / [DEBUG]	Analise Node 268/326...
+[2024-10-30 22:13:38:163] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:164] / [DEBUG]	Analise Node 269/326...
+[2024-10-30 22:13:38:164] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:165] / [DEBUG]	Analise Node 270/326...
+[2024-10-30 22:13:38:165] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:166] / [DEBUG]	Analise Node 271/326...
+[2024-10-30 22:13:38:166] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:167] / [DEBUG]	Analise Node 272/326...
+[2024-10-30 22:13:38:167] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:168] / [DEBUG]	Analise Node 273/326...
+[2024-10-30 22:13:38:168] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:168] / [DEBUG]	Analise Node 274/326...
+[2024-10-30 22:13:38:168] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:168] / [DEBUG]	Analise Node 275/326...
+[2024-10-30 22:13:38:168] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:170] / [DEBUG]	Analise Node 276/326...
+[2024-10-30 22:13:38:170] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:170] / [DEBUG]	Analise Node 277/326...
+[2024-10-30 22:13:38:170] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:170] / [DEBUG]	Analise Node 278/326...
+[2024-10-30 22:13:38:170] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:171] / [DEBUG]	Analise Node 279/326...
+[2024-10-30 22:13:38:171] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:172] / [DEBUG]	Analise Node 280/326...
+[2024-10-30 22:13:38:172] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:172] / [DEBUG]	Analise Node 281/326...
+[2024-10-30 22:13:38:172] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:173] / [DEBUG]	Analise Node 282/326...
+[2024-10-30 22:13:38:173] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:174] / [DEBUG]	Analise Node 283/326...
+[2024-10-30 22:13:38:174] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:175] / [DEBUG]	Analise Node 284/326...
+[2024-10-30 22:13:38:175] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:176] / [DEBUG]	Analise Node 285/326...
+[2024-10-30 22:13:38:176] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:178] / [DEBUG]	Analise Node 286/326...
+[2024-10-30 22:13:38:178] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:178] / [DEBUG]	Analise Node 287/326...
+[2024-10-30 22:13:38:178] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:179] / [DEBUG]	Analise Node 288/326...
+[2024-10-30 22:13:38:179] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:180] / [DEBUG]	Analise Node 289/326...
+[2024-10-30 22:13:38:180] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:180] / [DEBUG]	Analise Node 290/326...
+[2024-10-30 22:13:38:180] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:181] / [DEBUG]	Analise Node 291/326...
+[2024-10-30 22:13:38:181] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:182] / [DEBUG]	Analise Node 292/326...
+[2024-10-30 22:13:38:182] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:182] / [DEBUG]	Analise Node 293/326...
+[2024-10-30 22:13:38:182] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:183] / [DEBUG]	Analise Node 294/326...
+[2024-10-30 22:13:38:183] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:184] / [DEBUG]	Analise Node 295/326...
+[2024-10-30 22:13:38:184] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:184] / [DEBUG]	Analise Node 296/326...
+[2024-10-30 22:13:38:184] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:185] / [DEBUG]	Analise Node 297/326...
+[2024-10-30 22:13:38:185] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:185] / [DEBUG]	Analise Node 298/326...
+[2024-10-30 22:13:38:186] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:186] / [DEBUG]	Analise Node 299/326...
+[2024-10-30 22:13:38:186] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:187] / [DEBUG]	Analise Node 300/326...
+[2024-10-30 22:13:38:187] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:188] / [DEBUG]	Analise Node 301/326...
+[2024-10-30 22:13:38:188] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:188] / [DEBUG]	Analise Node 302/326...
+[2024-10-30 22:13:38:188] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:189] / [DEBUG]	Analise Node 303/326...
+[2024-10-30 22:13:38:189] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:190] / [DEBUG]	Analise Node 304/326...
+[2024-10-30 22:13:38:190] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:191] / [DEBUG]	Analise Node 305/326...
+[2024-10-30 22:13:38:191] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:192] / [DEBUG]	Analise Node 306/326...
+[2024-10-30 22:13:38:192] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:193] / [DEBUG]	Analise Node 307/326...
+[2024-10-30 22:13:38:193] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:193] / [DEBUG]	Analise Node 308/326...
+[2024-10-30 22:13:38:193] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:195] / [DEBUG]	Analise Node 309/326...
+[2024-10-30 22:13:38:195] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:195] / [DEBUG]	Analise Node 310/326...
+[2024-10-30 22:13:38:195] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:196] / [DEBUG]	Analise Node 311/326...
+[2024-10-30 22:13:38:196] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:197] / [DEBUG]	Analise Node 312/326...
+[2024-10-30 22:13:38:197] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:197] / [DEBUG]	Analise Node 313/326...
+[2024-10-30 22:13:38:197] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:198] / [DEBUG]	Analise Node 314/326...
+[2024-10-30 22:13:38:198] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:199] / [DEBUG]	Analise Node 315/326...
+[2024-10-30 22:13:38:199] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:199] / [DEBUG]	Analise Node 316/326...
+[2024-10-30 22:13:38:200] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:200] / [DEBUG]	Analise Node 317/326...
+[2024-10-30 22:13:38:200] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:200] / [DEBUG]	Analise Node 318/326...
+[2024-10-30 22:13:38:200] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:201] / [DEBUG]	Analise Node 319/326...
+[2024-10-30 22:13:38:201] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:202] / [DEBUG]	Analise Node 320/326...
+[2024-10-30 22:13:38:202] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:203] / [DEBUG]	Analise Node 321/326...
+[2024-10-30 22:13:38:203] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:204] / [DEBUG]	Analise Node 322/326...
+[2024-10-30 22:13:38:204] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:204] / [DEBUG]	Analise Node 323/326...
+[2024-10-30 22:13:38:204] / [ERROR]	duepp: Got due_add_event with 1 ticks. Must be at least: 10
+[2024-10-30 22:13:38:205] / [DEBUG]	Analise Node 324/326...
+[2024-10-30 22:13:38:205] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:206] / [DEBUG]	Analise Node 325/326...
+[2024-10-30 22:13:38:206] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:206] / [DONE]	Events added
+[2024-10-30 22:13:38:206] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:207] / [DEBUG]	duepp: Everything is allright
+[2024-10-30 22:13:38:211] / [DEBUG]	duepp: Get program dump:
+85 outputs: 0x10 time: 0x11b33
+487 outputs: 0x100 time: 0x203a0
+489 outputs: 0x10 time: 0x132a4
+491 outputs: 0x10 time: 0x1ee23
+493 outputs: 0x11 time: 0xe09c
+495 outputs: 0x10 time: 0x7ef4
+497 outputs: 0x10 time: 0x11b33
+499 outputs: 0x100 time: 0x203a0
+501 outputs: 0x10 time: 0x132a4
+0 BRANCH
+503 EXIT
+0 time: 0x7ef4
+473 outputs: 0x10 time: 0x11b33
+475 outputs: 0x100 time: 0x203a0
+477 outputs: 0x10 time: 0x132a4
+479 outputs: 0x10 time: 0x1ee23
+481 outputs: 0x11 time: 0xe09c
+483 outputs: 0x10 time: 0x7ef4
+[2024-10-30 22:13:38:211] / [INFO]	Program in HEX:
+000200FB
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B34
+00000010
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00000010
+0001EE23
+00000011
+0000E09C
+00000010
+00007EF4
+00000010
+00011B33
+00000100
+000203A0
+00000010
+000132A4
+00030000
+[2024-10-30 22:13:38:211] / [INFO]	Trying due_download_prog_save_to_file_command() 
+[2024-10-30 22:13:38:211] / [INFO]	file fd = 1
+[2024-10-30 22:13:38:212] / [ERROR]	duepp: due_download_command: got invalid file descriptor (<=0) 
+489 outputs: 0x10 time: 0x132a4
+491 outputs: 0x10 time: 0x1ee23
+493 outputs: 0x11 time: 0xe09c
+495 outputs: 0x10 time: 0x7ef4
+497 outputs: 0x10 time: 0x11b33
+499 outputs: 0x100 time: 0x203a0
+501 outputs: 0x10 time: 0x132a4
+0 BRANCH
+503 EXIT
+0 time: 0x7ef4
+473 outputs: 0x10 time: 0x11b33
+475 outputs: 0x100 time: 0x203a0
+477 outputs: 0x10 time: 0x132a4
+479 outputs: 0x10 time: 0x1ee23
+481 outputs: 0x11 time: 0xe09c
+483 outputs: 0x10 time: 0x7e
+[2024-10-30 22:13:38:212] / [INFO]	Creating Serial object
+[2024-10-30 22:13:38:212] / [INFO]	Connecting to Serial object
+[2024-10-30 22:13:38:212] / [INFO]	Checking connection
+[2024-10-30 22:13:38:213] / [ERROR]	No connection to \\.\COM5
