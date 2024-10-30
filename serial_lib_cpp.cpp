@@ -1665,6 +1665,7 @@ int due_write_dacs_now(int fd, unsigned int dac0,unsigned int dac1){
   return -1;
 }
 
+
 int due_write_alt_now(int fd, unsigned int output){
   unsigned int bytes_read,i;
   char sbuff[BUFFLEN];

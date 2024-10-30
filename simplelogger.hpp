@@ -8,12 +8,17 @@
 #include <fstream>
 
 #define ERROR -1 // Logger flags
+#define DEBUG_ERROR 6
 #define WARN 1
 #define INFO 0
+#define OK 4
+#define DEBUG 7
+#define DONE 10
 #define NO_LOG_STRING 2
 
 #ifndef SIMPLELOGGER_HPP
 #define SIMPLELOGGER_HPP
+
 namespace LogPref
 {
 class Flag {
@@ -22,11 +27,6 @@ public:
     Flag(int flag) {this->flag = flag;}
     Flag() {this->flag = INFO;}
 };
-}
-
-namespace LogManip
-{
-std::ostream& setfill(std::ostream out, char c);
 }
 
 class SimpleLogger {

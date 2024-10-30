@@ -29,13 +29,15 @@
 #include <list>
 #include <iterator>
 #include <stdlib.h>
+#include <vector>
 #include "serialib.h" // Serial library
 #include "pugixml.hpp"
 #include "simplelogger.hpp"
 
+#define DEBUG_ENABLED
+
 using namespace std;
 using namespace std::literals::chrono_literals;
-using vv = std::vector<std::vector<uint32_t>>;
 
 //#define SERIAL_PORT "\\\\.\\COM1"
 //const string SERIAL_PORT{"\\\\.\\COM19"};
@@ -45,10 +47,12 @@ extern std::ostream out(std::cout.rdbuf());
 extern SimpleLogger newlogger = SimpleLogger(out, "sync");
 
 static bool en_cout = false;
+static bool en_debug = false;
 
 int32_t ii, jj, kk, nn, reps, maxnb;
 char ch;
 char buffer[255];
+char dstr[1024];
 uint8_t b[255];
 
 uint32_t outputs1, outputs2, ticks1, ticks2;
@@ -58,7 +62,7 @@ uint32_t outputs7, outputs8, ticks7, ticks8;
 uint32_t outputs9, outputs10, ticks9, ticks10;
 uint32_t outputs11, ticks11;
 
-/*uint32_t check(string param){
+/*uint32_t to_uint32_t(string param){
 
     try{
         uint32_t result = stod(param);
@@ -74,11 +78,10 @@ uint32_t outputs11, ticks11;
          return 0;
     }
 
-    }//check*/
-
-uint32_t check(std::string param){
+    }//to_uint32_t*/
+namespace utilityFunctions {
+uint32_t to_uint32_t(std::string param){
             uint32_t result = stoi(param);
-            newlogger << result << " ";
             if (result >= 0){
                 return uint32_t(result);
             }
@@ -88,219 +91,241 @@ uint32_t check(std::string param){
 }
 
 
-
-bool ShowParameterText(string param, pugi::xml_node node)
+bool CheckNode(string param, pugi::xml_node node)
 {
-    newlogger << "Showing parameter : " << param << std::endl;
-
     if (node==nullptr)
     {
-        newlogger << "ERROR no such parameter : " << param << std::endl;
+        newlogger << LogPref::Flag(ERROR) << "Parameter " << param << " not found"<< std::endl;
         return false;
     }
     if (strlen(node.text().get())==0)
     {
-        newlogger << "ERROR no text for parameter : " << param << std::endl;
+        newlogger << LogPref::Flag(ERROR) << "No text for parameter " << param << std::endl;
         return false;
     }
 
-    //newlogger << param << " strlen text: " << strlen(node.text().get()) << std::endl;
-    newlogger << param << " get text: " << node.text().get() << std::endl;
-    newlogger<< param << " get as int : " << check(node.text().get())<< std::endl;
+//    if(en_debug)
+//    {
+//        newlogger << LogPref::Flag(DEBUG) << "Showing parameter : " << param << std::endl;
+//        newlogger << LogPref::Flag(DEBUG) << param << " get text: " << node.text().get() << std::endl;
+//        newlogger << LogPref::Flag(DEBUG) << param << " get as int : " << to_uint32_t(node.text().get())<< std::endl;
+//    }
 
     //newlogger << param << " get as double : " << node.text().as_double() << std::endl;
     //newlogger << param << " get as bool: " << node.text().as_bool() << std::endl;
 
     return true;
 } //function ShowParam
-
-
+}
 
 uint32_t GetOutputs(uint32_t RF, uint32_t SW, uint32_t ADC, uint32_t GRU){
+    std::stringstream debug_ss;
     uint32_t outputs{0x03000000};
     switch(RF){
     case 0:
         outputs = outputs&0xFFFFFFFE;
+        debug_ss << "\nRF 0"<< endl;
         break;
-        newlogger<<"RF 0"<<endl;
-
     case 1:
         outputs = outputs|0x00000001;
-        newlogger<<"RF 1"<<endl;
+        debug_ss << "\nRF 1"<< endl;
         break;
     }//end switch RF
 
-    newlogger<<hex<<outputs<<endl;
+    debug_ss << hex << outputs << endl;
+
     switch(SW){
     case 0:
         outputs = outputs&0xFFFFFFEF;
-        newlogger<<"SW 0"<<endl;
+        debug_ss << "SW 0"<<endl;
         break;
 
     case 1:
         outputs = outputs|0x00000010;
-        newlogger<<"SW 1"<<endl;
+        debug_ss << "SW 1"<<endl;
         break;
 
     }//end switch SW
-    newlogger<<hex<<outputs<<endl;
+
+    debug_ss << hex << outputs << endl;
 
     switch(ADC){
     case 0:
         outputs = outputs&0xFFFFFEFF;
-        newlogger<<"ADC 0"<<endl;
+        debug_ss << "ADC 0" << endl;
         break;
 
     case 1:
         outputs = outputs|0x00000100;
-        newlogger<<"ADC 1"<<endl;
+        debug_ss << "ADC 1" << endl;
         break;
 
     }//end switch ADC
 
-    newlogger << hex << outputs << endl;
+    debug_ss << hex << outputs << endl;
 
 
     switch(GRU){
     case 0:
         outputs = outputs&0xFCFFFFFF;
+        debug_ss << "GRU 0" << endl;
         break;
 
     case 1:
         outputs = outputs|0x03000000;
+        debug_ss << "GRU 1" << endl;
         break;
 
     }//end switch ADC
-    //newlogger<<hex<<outputs;
-    newlogger<<hex<<outputs<<endl;
+
+    debug_ss << hex << outputs << endl;
+
+    if(en_debug)
+        newlogger << LogPref::Flag(DEBUG) << debug_ss.str();
 
     return outputs;
 }
 
 // xml handler
-    vv& evalXml(int argc, char ** argv, vv& vec){
+int evalXml(int argc, char ** argv, pugi::xml_document& doc, std::vector<std::vector<uint32_t>>& vec){
         // Handle input xml
-    try {
-        if (argc < 2) {
-            throw std::invalid_argument("Incorrect number of arguments\n");
-        }
+        try {
+            if (argc < 2) {
+                throw std::invalid_argument("Incorrect number of arguments");
+            }
 
-        newlogger << "Try to load file...\n";
-        pugi::xml_parse_result result = doc.load_file(argv[1]);
+            newlogger << "Try to load file...\n";
+            pugi::xml_parse_result result = doc.load_file(argv[1]);
 
-        if (!result) {
-             throw std::invalid_argument("Error in loading file:\n");
-        }
-    }
-    catch(const std::invalid_argument& e) {
-        newlogger << e.what();
-        return 6;
-    }
-
-    newlogger << "External structure is ok\n";
-
-    newlogger << "ParamCount = ";
-
-    // Check, is this file stucture fits us
-    uint32_t ParamCount =  utilityFunctions::check(doc.child("root").child("ParamCount").text().get());
-    std::cout << ParamCount << '\n';
-    std::vector<uint32_t> RF_array(ParamCount);
-    std::vector<uint32_t> SW_array(ParamCount);
-    std::vector<uint32_t> ADC_array(ParamCount);
-    std::vector<uint32_t> GX_array(ParamCount);
-    std::vector<uint32_t> GY_array(ParamCount);
-    std::vector<uint32_t> GZ_array(ParamCount);
-    std::vector<uint32_t> CL_array(ParamCount);
-
-    try {
-        for (size_t i = 1; i <= ParamCount; i++){
-            std::string param1 = "RF"+std::to_string(i);
-            std::string param2 = "SW"+std::to_string(i);
-            std::string param3 = "ADC"+std::to_string(i);
-            std::string param4 = "GX"+std::to_string(i);
-            std::string param5 = "GY"+std::to_string(i);
-            std::string param6 = "GZ"+std::to_string(i);
-            std::string param7 = "CL"+std::to_string(i);
-
-            // Find necessary tag and put variable in array
-            RF_array[i] = utilityFunctions::check(doc.child("root").child("RF").child(param1.c_str()).text().get());
-            SW_array[i] = utilityFunctions::check(doc.child("root").child("SW").child(param2.c_str()).text().get());
-            ADC_array[i] = utilityFunctions::check(doc.child("root").child("ADC").child(param3.c_str()).text().get());
-            GX_array[i] = utilityFunctions::check(doc.child("root").child("GX").child(param4.c_str()).text().get());
-            GY_array[i] = utilityFunctions::check(doc.child("root").child("GY").child(param5.c_str()).text().get());
-            GZ_array[i] = utilityFunctions::check(doc.child("root").child("GZ").child(param6.c_str()).text().get());
-            CL_array[i] = utilityFunctions::check(doc.child("root").child("CL").child(param7.c_str()).text().get());
-
-            // Condition for correctness
-            if(!utilityFunctions::ShowParameterText(param1, doc.child("root").child("RF").child(param1.c_str())) &&
-                                  !utilityFunctions::ShowParameterText(param2, doc.child("root").child("SW").child(param2.c_str())) &&
-                                  !utilityFunctions::ShowParameterText(param3, doc.child("root").child("ADC").child(param3.c_str())) &&
-                                  !utilityFunctions::ShowParameterText(param4, doc.child("root").child("GX").child(param4.c_str())) &&
-                                  !utilityFunctions::ShowParameterText(param5, doc.child("root").child("GY").child(param5.c_str())) &&
-                                  !utilityFunctions::ShowParameterText(param6, doc.child("root").child("GZ").child(param6.c_str())) &&
-                                  !utilityFunctions::ShowParameterText(param7, doc.child("root").child("CL").child(param7.c_str()))){
-               throw std::invalid_argument("Incorrect xml structure\n");
+            if (!result) {
+                 throw std::invalid_argument("Error in loading file");
             }
         }
-    }
-    catch(const std::invalid_argument& e){
-	newlogger << e.what() << '\n';
-        return 5;
-    }
-    newlogger << "Correct internal structure of xml\n";
-    vec.push_back(RF_array);
-    vec.push_back(SW_array);
-    vec.push_back(ADC_array);
-    vec.push_back(GX_array);
-    vec.push_back(GY_array);
-    vec.push_back(GZ_array);
-    vec.push_back(CL_array);
-    //doc.save(std::cout);
-    return vec;
-    }
+        catch(const std::invalid_argument& e) {
+            newlogger << LogPref::Flag(ERROR) << e.what() << std::endl;
+            return 6;
+        }
 
-    // csv handler
-    vv& evalCsv(int argc, char** argv, vv& vec){
+        newlogger << LogPref::Flag(OK) << "External XML structure is OK\n";
+
+
+        // Check, is this file stucture fits us
+        uint32_t ParamCount =  utilityFunctions::to_uint32_t(doc.child("root").child("ParamCount").text().get());
+
+        if(en_debug)
+            newlogger << LogPref::Flag(DEBUG) << "ParamCount = " << ParamCount << std::endl;
+
+        // Data arrays (vectors)
+        std::vector<uint32_t> RF_array;
+        std::vector<uint32_t> SW_array;
+        std::vector<uint32_t> ADC_array;
+        std::vector<uint32_t> GX_array;
+        std::vector<uint32_t> GY_array;
+        std::vector<uint32_t> GZ_array;
+        std::vector<uint32_t> CL_array;
+
+        try {
+            for (size_t i = 1; i <= ParamCount; i++){
+                std::string param1 = "RF"+std::to_string(i);
+                std::string param2 = "SW"+std::to_string(i);
+                std::string param3 = "ADC"+std::to_string(i);
+                std::string param4 = "GX"+std::to_string(i);
+                std::string param5 = "GY"+std::to_string(i);
+                std::string param6 = "GZ"+std::to_string(i);
+                std::string param7 = "CL"+std::to_string(i);
+
+                // Find necessary tag and put variable in array
+                RF_array.push_back(utilityFunctions::to_uint32_t(doc.child("root").child("RF").child(param1.c_str()).text().get()));
+                SW_array.push_back(utilityFunctions::to_uint32_t(doc.child("root").child("SW").child(param2.c_str()).text().get()));
+                ADC_array.push_back(utilityFunctions::to_uint32_t(doc.child("root").child("ADC").child(param3.c_str()).text().get()));
+                GX_array.push_back(utilityFunctions::to_uint32_t(doc.child("root").child("GX").child(param4.c_str()).text().get()));
+                GY_array.push_back(utilityFunctions::to_uint32_t(doc.child("root").child("GY").child(param5.c_str()).text().get()));
+                GZ_array.push_back(utilityFunctions::to_uint32_t(doc.child("root").child("GZ").child(param6.c_str()).text().get()));
+                CL_array.push_back(utilityFunctions::to_uint32_t(doc.child("root").child("CL").child(param7.c_str()).text().get()));
+
+                // Condition for correctness
+                if(!utilityFunctions::CheckNode(param1, doc.child("root").child("RF").child(param1.c_str())) ||
+                                      !utilityFunctions::CheckNode(param2, doc.child("root").child("SW").child(param2.c_str())) ||
+                                      !utilityFunctions::CheckNode(param3, doc.child("root").child("ADC").child(param3.c_str())) ||
+                                      !utilityFunctions::CheckNode(param4, doc.child("root").child("GX").child(param4.c_str())) ||
+                                      !utilityFunctions::CheckNode(param5, doc.child("root").child("GY").child(param5.c_str())) ||
+                                      !utilityFunctions::CheckNode(param6, doc.child("root").child("GZ").child(param6.c_str())) ||
+                                      !utilityFunctions::CheckNode(param7, doc.child("root").child("CL").child(param7.c_str()))){
+                   throw std::invalid_argument("Incorrect XML structure\n");
+                }
+            }
+        }
+        catch(const std::invalid_argument& e){
+            newlogger << LogPref::Flag(ERROR) << e.what() << '\n';
+            return 5;
+        }
+        newlogger << LogPref::Flag(OK) << "Internal structure of XML is OK\n";
+
+        // Pushing arrays into return vector
+        vec.push_back(RF_array);
+        vec.push_back(SW_array);
+        vec.push_back(ADC_array);
+        vec.push_back(GX_array);
+        vec.push_back(GY_array);
+        vec.push_back(GZ_array);
+        vec.push_back(CL_array);
+
+        //doc.save(std::cout);
+        return 0;
+}
+
+// csv handler
+int evalCsv(int argc, char** argv, std::vector<std::vector<uint32_t>>& vec){
         std::string filename = argv[1];
-       std::ifstream work_file(filename);
-    std::string line;
-    char delimiter = ',';
-    uint32_t csv_row_counter = 0;
-    uint32_t ticks{0};
+        std::ifstream work_file(filename);
+        std::string line;
+        char delimiter = ',';
+        uint32_t csv_row_counter = 0;
+        uint32_t ticks{0};
 
-    std::vector<uint32_t> RF_list;
-    std::vector<uint32_t> TR_SW_list;
-    std::vector<uint32_t> ADC_list;
-    std::vector<uint32_t> GRAD_list;
-    std::vector<uint32_t> CYCLES_NUM_list;
+        std::vector<uint32_t> RF_list;
+        std::vector<uint32_t> TR_SW_list;
+        std::vector<uint32_t> ADC_list;
+        std::vector<uint32_t> GRAD_X_list;
+        std::vector<uint32_t> GRAD_Y_list;
+        std::vector<uint32_t> GRAD_Z_list;
+        std::vector<uint32_t> CYCLES_NUM_list;
 
-    while (getline(work_file, line))
-    {
-        std::stringstream stream(line);
-        std::string RF, TR_SW, ADC, GRAD, CYCLES_NUM, del_;
+        while (getline(work_file, line))
+        {
+            std::stringstream stream(line);
+            std::string RF, TR_SW, ADC, GRAD_X, GRAD_Y, GRAD_Z, CYCLES_NUM, del_;
 
-        std::getline(stream, RF, delimiter);
-        std::getline(stream, TR_SW, delimiter);
-        std::getline(stream, ADC, delimiter);
-        std::getline(stream, GRAD, delimiter);
-        std::getline(stream, CYCLES_NUM, delimiter);
-	RF_list.push_back(stoi(RF));
-        TR_SW_list.push_back(stoi(TR_SW));
-        ADC_list.push_back(stoi(ADC));
-        GRAD_list.push_back(stoi(GRAD));
-        CYCLES_NUM_list.push_back(stoi(CYCLES_NUM));
+            std::getline(stream, RF, delimiter);
+            std::getline(stream, TR_SW, delimiter);
+            std::getline(stream, ADC, delimiter);
+            std::getline(stream, GRAD_X, delimiter);
+            std::getline(stream, GRAD_Y, delimiter);
+            std::getline(stream, GRAD_Z, delimiter);
+            std::getline(stream, CYCLES_NUM, delimiter);
 
-        std::cout << "==================" << '\n';
-        std::cout << "RF: " << RF << '\n';
-        std::cout << "TR_SW: " << TR_SW << '\n';
-        std::cout << "ADC: " << ADC << '\n';
-        std::cout << "GRAD: " << GRAD << '\n';
-        std::cout << "CYCLES_NUM: " << CYCLES_NUM<< '\n';
-        csv_row_counter += 1;
-        ticks += stoi(CYCLES_NUM);
+            RF_list.push_back(stoi(RF));
+            TR_SW_list.push_back(stoi(TR_SW));
+            ADC_list.push_back(stoi(ADC));
+            GRAD_X_list.push_back(stoi(GRAD_X));
+            GRAD_Y_list.push_back(stoi(GRAD_Y));
+            GRAD_Z_list.push_back(stoi(GRAD_Z));
+            CYCLES_NUM_list.push_back(stoi(CYCLES_NUM));
 
-    }
-	work_file.close();
+            std::cout << "==================" << '\n';
+            std::cout << "RF: " << RF << '\n';
+            std::cout << "TR_SW: " << TR_SW << '\n';
+            std::cout << "ADC: " << ADC << '\n';
+            std::cout << "GRAD_X: " << GRAD_X << '\n';
+            std::cout << "GRAD_Y: " << GRAD_Y << '\n';
+            std::cout << "GRAD_Z: " << GRAD_Z << '\n';
+            std::cout << "CYCLES_NUM: " << CYCLES_NUM<< '\n';
+
+            csv_row_counter += 1;
+            ticks += stoi(CYCLES_NUM);
+
+        }
+        work_file.close();
 //    auto iter_rf = RF_list.begin();
 //    auto iter_tr_sw = TR_SW_list.begin();
 //    auto iter_adc = ADC_list.begin();
@@ -312,41 +337,71 @@ uint32_t GetOutputs(uint32_t RF, uint32_t SW, uint32_t ADC, uint32_t GRU){
 //        iter_rf++;
 //    }
     //end of reading pulse sequence from csv file
-	vec.push_back(RF_list);
-	vec.push_back(TR_SW_list);
+        vec.push_back(RF_list);
+        vec.push_back(TR_SW_list);
         vec.push_back(ADC_list);
-        vec.push_back(GRAD_list);
+        vec.push_back(GRAD_X_list);
+        vec.push_back(GRAD_Y_list);
+        vec.push_back(GRAD_Z_list);
         vec.push_back(CYCLES_NUM_list);
-    }
-    return vec;
+
+    return 0;
 }
 
-int main()
+int main(int argc, char** argv)
 {
+    // Default console enabled
     newlogger.enableConsoleOutput(true);
 
-// READING XML FILE
+    // Flag arguments handler
+    if(argc == 1)
+    {
+        std::cout << "ERROR: no args (use Sync.exe <filename>)" << endl;
+        return -1;
+    }
+    if(argc > 2)
+    {
+    for(int i = 2; i < argc; i++)
+    {
+        if(strcmp(argv[i], "--debug")==0)
+        {
+            en_debug = true;
+        }
+        else if(strcmp(argv[i], "--disable-console")==0)
+        {
+            newlogger.enableConsoleOutput(false);
+        }
+    }
+    }
+    int status = INFO;
+
+    // Default duepp debug string
+    strcpy(dstr,"duepp: Everything is allright\n");
+
+// READING SEQUENCE FILE
     pugi::xml_document doc;
     newlogger << "Start...\n";
-     std::string fileName = argv[1];
-        newlogger << "File: " << fileName << "\n";
+    std::string fileName = argv[1];
+    newlogger << "File: " << fileName << "\n";
+    size_t fileNameSize = fileName.size();
 
-        size_t fileNameSize = fileName.size();
-	std::vector<std::vector> returnmentValues;
+	std::vector<std::vector<uint32_t>> returnmentValues;
+
 	try {
-        if (fileNameSize <= 4 || fileName.substr(fileNameSize - 3, 3) != "xml") {
-            if(fileName.substr(fileNameSize - 3, 3) != "csv") {
-            throw std::invalid_argument("Incorrect file name or size\n");
-        }
+        if(fileName.substr(fileNameSize - 3, 3) == "xml") evalXml(argc, argv, doc, returnmentValues);
+        else if(fileName.substr(fileNameSize - 3, 3) == "csv") evalCsv(argc, argv, returnmentValues);
         else {
-            if(fileName.substr(fileNameSize - 3, 3) == "xml") returnmentValues = evalXml(argc, arg, returnmentValues);
-            else returnmentValues = evalCsv(argc, argv, returnmentValues);
+            throw std::invalid_argument("Incorrect file name or size\n");
         }
 	}
 	catch(const std::invalid_argument& e){
-		newlogger << e.what << '\n';
+		newlogger << LogPref::Flag(ERROR) << e.what() << '\n';
 		return 5;
 	}
+
+	newlogger << LogPref::Flag(DONE) << "File loaded successfully\n";
+
+	uint32_t ParamCount =  utilityFunctions::to_uint32_t(doc.child("root").child("ParamCount").text().get());
 
     /*const string filepath{""};
     const string filename{"sync_v2.xml"};
@@ -361,19 +416,19 @@ int main()
 
     newlogger << "Load result: " << result.description() << std::endl;
 
-//    ShowParameterText("noparam", doc.child("config").child("nochild") );
-//    ShowParameterText("param1", doc.child("config").child("param1") );
-//    ShowParameterText("param2", doc.child("config").child("param2") );
-//    ShowParameterText("param3", doc.child("config").child("param3") );
-//    ShowParameterText("param4", doc.child("config").child("param4") );
-//    ShowParameterText("param5", doc.child("config").child("param5") );
-//    ShowParameterText("param6", doc.child("config").child("param6") );
+//    CheckNode("noparam", doc.child("config").child("nochild") );
+//    CheckNode("param1", doc.child("config").child("param1") );
+//    CheckNode("param2", doc.child("config").child("param2") );
+//    CheckNode("param3", doc.child("config").child("param3") );
+//    CheckNode("param4", doc.child("config").child("param4") );
+//    CheckNode("param5", doc.child("config").child("param5") );
+//    CheckNode("param6", doc.child("config").child("param6") );
 //
-//    ShowParameterText("config2-param1", doc.child("config").child("config2").child("param1") );
+//    CheckNode("config2-param1", doc.child("config").child("config2").child("param1") );
 
     newlogger<<"ParamCount = ";
 
-    uint32_t ParamCount =  check(doc.child("root").child("ParamCount").text().get());
+    uint32_t ParamCount =  to_uint32_t(doc.child("root").child("ParamCount").text().get());
     newlogger<<ParamCount<<std::endl;
     int *RF_array {new int [ParamCount]{}};
     int *SW_array {new int [ParamCount]{}};
@@ -390,27 +445,28 @@ int main()
         string param5 {"CL"+to_string(i)};
 //        newlogger << param1;
 
-        RF_array[i] = check(doc.child("root").child("RF").child(param1.c_str()).text().get());
-        SW_array[i] = check(doc.child("root").child("SW").child(param2.c_str()).text().get());
-        ADC_array[i] = check(doc.child("root").child("ADC").child(param3.c_str()).text().get());
-        //GRU_array[i] = check(doc.child("root").child("GRU").child(param4.c_str()).text().get());
-        CL_array[i] = check(doc.child("root").child("CL").child(param5.c_str()).text().get());
+        RF_array[i] = to_uint32_t(doc.child("root").child("RF").child(param1.c_str()).text().get());
+        SW_array[i] = to_uint32_t(doc.child("root").child("SW").child(param2.c_str()).text().get());
+        ADC_array[i] = to_uint32_t(doc.child("root").child("ADC").child(param3.c_str()).text().get());
+        //GRU_array[i] = to_uint32_t(doc.child("root").child("GRU").child(param4.c_str()).text().get());
+        CL_array[i] = to_uint32_t(doc.child("root").child("CL").child(param5.c_str()).text().get());
 
-        ShowParameterText(param1, doc.child("root").child("RF").child(param1.c_str()));
-        ShowParameterText(param2, doc.child("root").child("SW").child(param2.c_str()));
-        ShowParameterText(param3, doc.child("root").child("ADC").child(param3.c_str()));
-        //ShowParameterText(param4, doc.child("root").child("GRU").child(param4.c_str()));
-        ShowParameterText(param5, doc.child("root").child("CL").child(param5.c_str()));
+        CheckNode(param1, doc.child("root").child("RF").child(param1.c_str()));
+        CheckNode(param2, doc.child("root").child("SW").child(param2.c_str()));
+        CheckNode(param3, doc.child("root").child("ADC").child(param3.c_str()));
+        //CheckNode(param4, doc.child("root").child("GRU").child(param4.c_str()));
+        CheckNode(param5, doc.child("root").child("CL").child(param5.c_str()));
     }//for
     doc.save(out);*/
 
+// Default output file
 const string OutFilePath {"D:\Synchronisation\dueppwinserial"};
 const string OutFileName {"0000"};
 const string OutFileNameCommand {"_command"};
 const string OutFileNameData {"_data"};
 string OutFile;
 
-  newlogger << "START" << endl;
+    newlogger << "Creating synchronization program..." << endl;
 
     outputs1 = 0x02000000;
     ticks1 = 0x000000FF;
@@ -437,8 +493,6 @@ string OutFile;
     uint32_t ticks_low = time_low*1000/20; //number of 20 ns ticks when pins are low
     uint32_t ticks_delay = time_delay*1000/20; //number of 20 ns ticks when pins are high
     uint32_t ticks_low_mod = ticks_low - 2*ticks_delay;
-
-
 
     due_prog_t program1;
 
@@ -472,31 +526,59 @@ string OutFile;
 /*
     due_start_loop(&program1, out_high, ticks_high, reps);//порядок параметров поменять
     due_end_loop(&program1, out_low, ticks_low);*/
+
+    // Get outputs configuration for TTL signal
     uint32_t XML_outputs{0};
 
     for(int i=0; i<ParamCount;i++){
-        XML_outputs = GetOutputs(RF_array[i],SW_array[i],ADC_array[i],0);
-        due_add_event(&program1, XML_outputs,CL_array[i]);
+        XML_outputs = GetOutputs(returnmentValues[0][i],returnmentValues[1][i],returnmentValues[2][i],0);
+
+        // Redirecting stdout from due_pp_lib to string
+        freopen("temp", "w", stdout);
+        setbuf(stdout, dstr);
+            status = due_add_event(&program1, XML_outputs,returnmentValues[6][i]);
+        freopen("CON", "w", stdout);
+        if(en_debug)
+            newlogger << LogPref::Flag(status+DEBUG) << dstr;
+        strcpy(dstr,"duepp: Everything is allright\n");
     }
 
+    newlogger << LogPref::Flag(DONE) << "Events added" << endl;
 
-    newlogger << "" << endl;
-    newlogger << "Events added" << endl;
+    freopen("temp", "w", stdout);
+    setbuf(stdout, dstr);
+        status = due_exit_program(&program1);
+    freopen("CON", "w", stdout);
+    if(en_debug)
+        newlogger << LogPref::Flag(status+DEBUG) << dstr;
+    strcpy(dstr,"duepp: Everything is allright\n");
 
-    due_exit_program(&program1);
+    freopen("temp", "w", stdout);
+    setbuf(stdout, dstr);
+        status = due_finalize_program(&program1);
+    freopen("CON", "w", stdout);
+    if(en_debug)
+        newlogger << LogPref::Flag(status+DEBUG) << dstr;
+    strcpy(dstr,"duepp: Everything is allright\n");
 
-    due_finalize_program(&program1);
+    freopen("temp", "w", stdout);
+    setbuf(stdout, dstr);
+        status = due_dump_program(&program1);
+    freopen("CON", "w", stdout);
+    if(en_debug)
+        newlogger << LogPref::Flag(status+DEBUG) << "duepp: Get program dump:\n" << dstr;
+    strcpy(dstr,"duepp: Everything is allright\n");
 
-    due_dump_program(&program1);
-
-    newlogger << "" << endl;
-    newlogger << "Program in HEX" << endl;
-
+    // Getting hex program
+    stringstream ss;
     for (int32_t ii=0;  ii<program1.dpos+0; ii++)
     {
         //newlogger << "" << std::hex << std::showbase << std::uppercase << program1.data[ii]<< endl;
-        newlogger << "" << std::hex << std::setfill('0') << std::setw(8)<< std::uppercase << program1.data[ii]<< endl;
+        ss << "" << std::hex << std::setfill('0') << std::setw(8)<< std::uppercase << program1.data[ii]<< endl;
     }  //for
+
+    if(en_debug)
+        newlogger << "Program in HEX:\n" << ss.str();
 
     /*-----------------------
     newlogger << "" << endl;
@@ -517,8 +599,9 @@ string OutFile;
     close(fd);
 
    //-----------------------*/
-    newlogger << "" << endl;
-    newlogger << "trying due_download_prog_save_to_file_command() " << endl;
+
+   // Saving synchroprogram to output file
+    newlogger << "Trying due_download_prog_save_to_file_command() " << endl;
 
     OutFile = std::string("");
 
@@ -526,34 +609,41 @@ string OutFile;
     int fd = open(OutFile.c_str(), O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU | S_IRWXG | S_IRWXO);  //ok
 
     //due_download_prog(fd, &program1);
-    due_download_prog_save_to_file_command(fd, &program1);
+
+    freopen("temp", "w", stdout);
+    setbuf(stdout, dstr);
+        status = due_download_prog_save_to_file_command(fd, &program1);
+    freopen("CON", "w", stdout);
+    newlogger << LogPref::Flag(status+DEBUG) << dstr;
+    strcpy(dstr,"duepp: Everything is allright\n");
 
     close(fd);
 
 
-    newlogger << endl<< endl<< "creating Serial object" << endl;
+    //Opening serial port
+    newlogger << "Creating Serial object" << endl;
 
      // Serial object
     serialib serial;
 
-    newlogger << "connecting to Serial object" << endl;
+    newlogger << "Connecting to Serial object" << endl;
 
     // Connection to serial port
     //char errorOpening = serial.openDevice(SERIAL_PORT, 38400);
     char errorOpening = serial.openDevice(SERIAL_PORT.c_str(), 38400);
 
 
-    newlogger << "checking connection" << endl;
+    newlogger << "Checking connection" << endl;
 
 
     // If connection fails, return the error code otherwise, display a success message
     if (errorOpening!=1)
     {
-        printf ("NO connection to %s\n");
+        newlogger << LogPref::Flag(ERROR) << "No connection to " << SERIAL_PORT << std::endl;
 
         return errorOpening;
     }
-    else  printf ("Successful connection to %s\n",SERIAL_PORT.c_str());
+    else  newlogger << LogPref::Flag(DONE) << "Successful connection to " << SERIAL_PORT.c_str();
 
     serial.flushReceiver();
 
@@ -613,7 +703,15 @@ string OutFile;
 //
 //serial.writeBytes(b, 3);
 int due_dl{0};
-due_dl = due_upload_trajectory(serial, &program1);
+
+
+freopen("temp", "w", stdout);
+setbuf(stdout, dstr);
+    due_dl = due_upload_trajectory(serial, &program1);
+freopen("CON", "w", stdout);
+if(en_debug)
+    newlogger << LogPref::Flag(due_dl+DEBUG) << dstr;
+strcpy(dstr,"duepp: Everything is allright\n");
 //newlogger << std::dec << "" << endl;
 //
 //   ii = serial.available();
@@ -707,7 +805,6 @@ due_dl = due_upload_trajectory(serial, &program1);
 
         //this_thread::sleep_for(30000ms);
 
-    newlogger << "" << endl;
-    newlogger << "DONE!" << endl;
+    newlogger << LogPref::Flag(OK) << "DONE!" << endl;
     return 0;
 }

@@ -373,3 +373,99 @@
 
 1729045878 e:\mrt_lowfield\syncronisation\due-pp-lib.h
 
+1730310219 source:c:\users\admin\projects\syncro\main.cpp
+	<iostream>
+	<iomanip>
+	<thread>
+	<chrono>
+	<ctime>
+	"serial_lib_cpp.cpp"
+	<sstream>
+	<fstream>
+	<list>
+	<iterator>
+	<stdlib.h>
+	<vector>
+	"serialib.h"
+	"pugixml.hpp"
+	"simplelogger.hpp"
+
+1730290707 c:\users\admin\projects\syncro\serial_lib_cpp.cpp
+	"due-pp-lib.h"
+	<math.h>
+	<unistd.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<stdio.h>
+	<string.h>
+	<sys/file.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fstream>
+	"serialib.h"
+	<unistd.h>
+	<sys/time.h>
+	<thread>
+	<chrono>
+
+1730266406 c:\users\admin\projects\syncro\due-pp-lib.h
+
+1730266407 c:\users\admin\projects\syncro\serialib.h
+	<sys/time.h>
+	<sys/time.h>
+	<windows.h>
+	<stdlib.h>
+	<sys/types.h>
+	<sys/shm.h>
+	<termios.h>
+	<string.h>
+	<iostream>
+	<sys/time.h>
+	<fcntl.h>
+	<unistd.h>
+	<sys/ioctl.h>
+
+1730266407 c:\users\admin\projects\syncro\pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1730266407 c:\users\admin\projects\syncro\pugiconfig.hpp
+
+1730308806 c:\users\admin\projects\syncro\simplelogger.hpp
+	<iostream>
+	<iomanip>
+	<chrono>
+	<ctime>
+	<sstream>
+	<fstream>
+	<sstream>
+	<fstream>
+
+1730266407 source:c:\users\admin\projects\syncro\serialib.cpp
+	"serialib.h"
+
+1730308828 source:c:\users\admin\projects\syncro\simplelogger.cpp
+	"simplelogger.hpp"
+
+1730266407 source:c:\users\admin\projects\syncro\pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<sys/stat.h>
+	<stdint.h>
+

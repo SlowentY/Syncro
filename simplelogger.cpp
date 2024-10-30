@@ -1,12 +1,6 @@
 #include "simplelogger.hpp"
 
-// Generates file name
-
-std::ostream& LogManip::setfill(std::ostream out, char c)
-{
-    out << std::setfill(c);
-    return out;
-}
+// Generates filename (in format prefix-log-data-time)
 
 std::string SimpleLogger::generateFileName()
 {
@@ -15,7 +9,7 @@ std::string SimpleLogger::generateFileName()
 
     char logfile_creation_time[100];
     std::strftime(logfile_creation_time, sizeof(logfile_creation_time), "%Y%m%d-%H%M%S", std::localtime(&t_n));
-    std::string logname = this->log_name_prefix + "-log-" + std::string(logfile_creation_time, 100) + ".txt";
+    std::string logname = this->log_name_prefix + "-log-" + std::string(logfile_creation_time) + ".log";
 
     return logname;
 }
@@ -39,10 +33,17 @@ std::string SimpleLogger::generateLogString(int flag = INFO)
 
     std::string logstring = std::string("[") + std::string(log_time) + std::string(":") + std::to_string(millis) + std::string("]");
 
+    // Different flags
     switch(flag)
     {
     case ERROR:
         logstring = logstring + " / [ERROR]\t";
+        break;
+    case DEBUG_ERROR:
+        logstring = logstring + " / [ERROR]\t";
+        break;
+    case DONE:
+        logstring = logstring + " / [DONE]\t";
         break;
     case WARN:
         logstring = logstring + " / [WARN]\t";
@@ -50,8 +51,14 @@ std::string SimpleLogger::generateLogString(int flag = INFO)
     case INFO:
         logstring = logstring + " / [INFO]\t";
         break;
+    case OK:
+        logstring = logstring + " / [OK]\t";
+        break;
+    case DEBUG:
+        logstring = logstring + " / [DEBUG]\t";
+        break;
     default:
-        logstring = logstring + " / [UNDEF]";
+        logstring = logstring + " / [UNDEF]\t";
         break;
     }
 
@@ -75,6 +82,7 @@ SimpleLogger::SimpleLogger(std::ostream& ls, std::string prefix) : log_stream(ls
     this->initializeLogger("", prefix);
 }
 
+// Initialize function
 
 void SimpleLogger::initializeLogger(std::string filename = "", std::string prefix = "")
 {
@@ -96,6 +104,8 @@ void SimpleLogger::initializeLogger(std::string filename = "", std::string prefi
     this->log_stream.rdbuf(this->file_stream.rdbuf());
 }
 
+// Copy logger constructor
+
 SimpleLogger::SimpleLogger(const SimpleLogger& other) : log_stream(other.log_stream)
 {
     this->log_flag = other.log_flag;
@@ -105,25 +115,35 @@ SimpleLogger::SimpleLogger(const SimpleLogger& other) : log_stream(other.log_str
     this->log_name = other.log_name;
 }
 
+// Close logger stream
+
 void SimpleLogger::closeLogger()
 {
     this->file_stream.close();
 }
+
+// Destructor
 
 SimpleLogger::~SimpleLogger()
 {
     this->closeLogger();
 }
 
+// Setting logger flag
+
 void SimpleLogger::setLoggerFlag(LogPref::Flag log_flag = LogPref::Flag(INFO))
 {
     this->log_flag = log_flag;
 }
 
+// Setting ability to console output
+
 void SimpleLogger::enableConsoleOutput(bool enable_console)
 {
     console_enabled = enable_console;
 }
+
+// Sets flag just for one record;
 
 SimpleLogger SimpleLogger::operator<<(LogPref::Flag flag)
 {
@@ -132,10 +152,14 @@ SimpleLogger SimpleLogger::operator<<(LogPref::Flag flag)
     return s;
 }
 
+// Shift operators (follow standard ostream shift operators)
+
 SimpleLogger SimpleLogger::operator<<(bool val){
+    // Firstly printing in console
     if(console_enabled){
         std::cout << (this->log_flag.flag == NO_LOG_STRING ? "" : generateLogString(this->log_flag.flag)) << val;
     }
+    // Printing in file
     log_stream << (this->log_flag.flag == NO_LOG_STRING ? "" : generateLogString(this->log_flag.flag)) << val;
     return *this << LogPref::Flag(NO_LOG_STRING);
 }
