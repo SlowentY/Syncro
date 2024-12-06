@@ -1,0 +1,87 @@
+<root>
+<ParamCount>9</ParamCount>
+<RF>
+    <RF1>0</RF1>
+    <RF2>1</RF2>
+    <RF3>0</RF3>
+    <RF4>0</RF4>
+    <RF5>0</RF5>
+    <RF6>1</RF6>
+    <RF7>0</RF7>
+    <RF8>0</RF8>
+    <RF9>0</RF9>
+</RF>
+
+<SW>
+    <SW1>0</SW1>
+    <SW2>0</SW2>
+    <SW3>0</SW3>
+    <SW4>0</SW4>
+    <SW5>0</SW5>
+    <SW6>0</SW6>
+    <SW7>0</SW7>
+    <SW8>0</SW8>
+    <SW9>0</SW9>
+</SW>
+
+<ADC>
+    <ADC1>0</ADC1>
+    <ADC2>0</ADC2>
+    <ADC3>0</ADC3>
+    <ADC4>1</ADC4>
+    <ADC5>0</ADC5>
+    <ADC6>0</ADC6>
+    <ADC7>0</ADC7>
+    <ADC8>1</ADC8>
+    <ADC9>0</ADC9>
+</ADC>
+
+<GX>
+    <GX1>0</GX1>
+    <GX2>0</GX2>
+    <GX3>0</GX3>
+    <GX4>0</GX4>
+    <GX5>0</GX5>
+    <GX6>0</GX6>
+    <GX7>0</GX7>
+    <GX8>0</GX8>
+    <GX9>0</GX9>
+</GX>
+
+<GY>
+    <GY1>0</GY1>
+    <GY2>0</GY2>
+    <GY3>0</GY3>
+    <GY4>0</GY4>
+    <GY5>0</GY5>
+    <GY6>0</GY6>
+    <GY7>0</GY7>
+    <GY8>0</GY8>
+    <GY9>0</GY9>
+</GY>
+
+<GZ>
+    <GZ1>0</GZ1>
+    <GZ2>0</GZ2>
+    <GZ3>0</GZ3>
+    <GZ4>0</GZ4>
+    <GZ5>0</GZ5>
+    <GZ6>0</GZ6>
+    <GZ7>0</GZ7>
+    <GZ8>0</GZ8>
+    <GZ9>0</GZ9>
+</GZ>
+
+<CL>
+    <CL1>50850</CL1>
+    <CL2>50000</CL2>
+    <CL3>20000</CL3>
+    <CL4>10000</CL4>
+    <CL5>20000</CL5>
+    <CL6>50000</CL6>
+    <CL7>20000</CL7>
+    <CL8>10000</CL8>
+    <CL9>20000</CL9>
+</CL>
+
+</root>

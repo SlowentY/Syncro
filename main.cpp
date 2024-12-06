@@ -42,7 +42,7 @@ using namespace std::literals::chrono_literals;
 //#define SERIAL_PORT "\\\\.\\COM1"
 //const string SERIAL_PORT{"\\\\.\\COM19"};
 
-const string SERIAL_PORT{"\\\\.\\COM5"};
+const string SERIAL_PORT{"\\\\.\\COM11"};
 extern std::ostream out(std::cout.rdbuf());
 extern SimpleLogger newlogger = SimpleLogger(out, "sync");
 
@@ -127,7 +127,7 @@ uint32_t GetOutputs(uint32_t RF, uint32_t SW, uint32_t ADC, uint32_t GRU){
         debug_ss << "\nRF 0"<< endl;
         break;
     case 1:
-        outputs = outputs|0x00000001;
+        outputs = outputs|0x00000002;
         debug_ss << "\nRF 1"<< endl;
         break;
     }//end switch RF
@@ -180,8 +180,8 @@ uint32_t GetOutputs(uint32_t RF, uint32_t SW, uint32_t ADC, uint32_t GRU){
 
     debug_ss << hex << outputs << endl;
 
-   // if(en_debug)
-   //     newlogger << LogPref::Flag(DEBUG) << debug_ss.str();
+    if(en_debug)
+        newlogger << LogPref::Flag(DEBUG) << debug_ss.str();
 
     return outputs;
 }
@@ -485,7 +485,7 @@ string OutFile;
     uint32_t time_low_corrected =1000; //time in us
 
     uint32_t out_high =0x00000002; //pin outputs
-    uint32_t out_low = 0x00000010; //pin outputs
+    uint32_t out_low = 0x00000000; //pin outputs
     uint32_t ticks_high = time_high*1000/20; //number of 20 ns ticks when pins are high
     uint32_t ticks_low_corrected = time_low_corrected*1000/20; //number of 20 ns ticks when pins are high
 
@@ -530,7 +530,12 @@ string OutFile;
     // Get outputs configuration for TTL signal
     uint32_t XML_outputs{0};
 
-    for(int i=0; i<ParamCount;i++){
+    XML_outputs = GetOutputs(returnmentValues[0][0],returnmentValues[1][0],returnmentValues[2][0],0);
+
+    due_add_event(&program1,out_low, 20);
+    due_wait_for_trigger(&program1, XML_outputs, returnmentValues[6][0] );
+
+    for(int i=1; i<ParamCount;i++){
         XML_outputs = GetOutputs(returnmentValues[0][i],returnmentValues[1][i],returnmentValues[2][i],0);
 
         // Redirecting stdout from due_pp_lib to string

@@ -1,0 +1,12 @@
+---- due_upload_trajectory ------
+duepp: Sending prog size: 24 D serial.available = 12
+D serial.readString = 24 size ok
+
+duepp: Sending program: 
+program->dpos: 24
+---- send ------
+D serial.available = 0
+D serial.readString = 
+D serial.available = 23
+D serial.readString = 144 216 data received
+
