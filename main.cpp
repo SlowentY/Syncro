@@ -42,7 +42,6 @@ using namespace std::literals::chrono_literals;
 //#define SERIAL_PORT "\\\\.\\COM1"
 //const string SERIAL_PORT{"\\\\.\\COM19"};
 
-const string SERIAL_PORT{"\\\\.\\COM11"};
 extern std::ostream out(std::cout.rdbuf());
 extern SimpleLogger newlogger = SimpleLogger(out, "sync");
 
@@ -352,6 +351,7 @@ int main(int argc, char** argv)
 {
     // Default console enabled
     newlogger.enableConsoleOutput(true);
+    string SERIAL_PORT{"\\\\.\\COM11"};
 
     // Flag arguments handler
     if(argc == 1)
@@ -370,6 +370,27 @@ int main(int argc, char** argv)
         else if(strcmp(argv[i], "--disable-console")==0)
         {
             newlogger.enableConsoleOutput(false);
+        }
+        else if(strcmp(argv[i], "-p")==0)
+        {
+            int nump = 1;
+            if(i+1 < argc)
+            {
+                try
+                {
+                    nump = stoi(argv[i+1], nullptr, 10);
+                }
+                catch(std::invalid_argument const& ex)
+                {
+                    std::cout << "Invalid argument for serial port: " << ex.what() << std::endl;
+                }
+                catch(std::out_of_range const& ex)
+                {
+                    std::cout << "Argument is out of range for serial port: " << ex.what() << std::endl;
+                }
+
+                SERIAL_PORT = std::string("\\\\.\\COM") + std::string(argv[i+1]);
+            }
         }
     }
     }
